@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Spice &amp; Rice Bistro | Maitama Executive Dining</title>
+    <title>Spice Spoon Restaurant &amp; Lounge | Guzape Abuja 24/7 Dining</title>
     
     <!-- PWA Manifest & Theme -->
     <link rel="manifest" href="manifest.json">
@@ -12,8 +12,8 @@
     <!-- iOS Support -->
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <meta name="apple-mobile-web-app-title" content="Spice & Rice">
-    <link rel="apple-touch-icon" href="https://images.unsplash.com/photo-1604329760661-e71dc83f8f26?auto=format&fit=crop&w=192&h=192">
+    <meta name="apple-mobile-web-app-title" content="Spice Spoon">
+    <link rel="apple-touch-icon" href="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&w=192&h=192">
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -51,7 +51,7 @@
 
         header {
             background: linear-gradient(180deg, rgba(13,11,9,0.5) 0%, var(--bg-color) 100%), 
-                        url('https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&w=1000&q=80') center/cover;
+                        url('https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=1000&q=80') center/cover;
             padding: 64px 20px 36px;
             text-align: center;
             border-bottom: 1px solid var(--border);
@@ -66,7 +66,7 @@
             background-clip: text;
             -webkit-text-fill-color: transparent;
             font-weight: 700;
-            font-size: 2.2rem;
+            font-size: 2.1rem;
             letter-spacing: 2px;
             margin-bottom: 12px;
         }
@@ -100,7 +100,7 @@
 
         header p {
             color: var(--text-muted);
-            font-size: 0.8rem;
+            font-size: 0.78rem;
             font-weight: 400;
             letter-spacing: 2px;
             text-transform: uppercase;
@@ -509,10 +509,10 @@
     <!-- Install PWA Floating Prompt Banner -->
     <div id="pwa-install-banner" style="display: none; position: fixed; top: 12px; left: 12px; right: 12px; max-width: 656px; margin: 0 auto; background: rgba(22, 19, 17, 0.95); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border: 1px solid var(--accent-gold); border-radius: 12px; padding: 12px 16px; z-index: 100; box-shadow: 0 8px 24px rgba(0,0,0,0.6); align-items: center; justify-content: space-between;">
         <div style="display: flex; align-items: center; gap: 12px;">
-            <img src="https://images.unsplash.com/photo-1604329760661-e71dc83f8f26?auto=format&fit=crop&w=100&h=100" style="width: 40px; height: 40px; border-radius: 8px; object-fit: cover; border: 1px solid var(--accent-gold);" alt="App Icon">
+            <img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&w=100&h=100" style="width: 40px; height: 40px; border-radius: 8px; object-fit: cover; border: 1px solid var(--accent-gold);" alt="App Icon">
             <div>
-                <div style="font-size: 0.85rem; font-weight: 600; color: var(--text-main);">Spice &amp; Rice App</div>
-                <div style="font-size: 0.72rem; color: var(--text-muted);">Install for faster ordering</div>
+                <div style="font-size: 0.85rem; font-weight: 600; color: var(--text-main);">Spice Spoon App</div>
+                <div style="font-size: 0.72rem; color: var(--text-muted);">Install for 24/7 ordering</div>
             </div>
         </div>
         <div style="display: flex; gap: 8px; align-items: center;">
@@ -524,9 +524,8 @@
     <!-- Step-by-Step Installation Modal -->
     <div id="pwa-guide-modal" class="modal-overlay">
         <div class="modal" style="text-align: center;">
-            <h2>Install Spice &amp; Rice App</h2>
+            <h2>Install Spice Spoon App</h2>
             
-            <!-- Steps for iOS -->
             <div id="ios-steps" style="display: none; text-align: left; margin: 16px 0;">
                 <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 12px;">Follow these simple steps on Safari:</p>
                 <ol style="color: var(--text-main); font-size: 0.85rem; padding-left: 20px; line-height: 1.8;">
@@ -536,7 +535,6 @@
                 </ol>
             </div>
 
-            <!-- Steps for Android / Desktop -->
             <div id="android-steps" style="display: none; text-align: left; margin: 16px 0;">
                 <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 12px;">Follow these steps in your browser:</p>
                 <ol style="color: var(--text-main); font-size: 0.85rem; padding-left: 20px; line-height: 1.8;">
@@ -551,127 +549,106 @@
     </div>
 
     <header>
-        <h1>Spice &amp; Rice Bistro</h1>
+        <h1>Spice Spoon Restaurant &amp; Lounge</h1>
         <div class="divider"><span></span></div>
-        <p>Maitama Executive Lunch &amp; Express Orders</p>
+        <p>Guzape, Abuja — 24/7 Dining, Grills &amp; Lounge</p>
     </header>
 
     <nav class="category-nav">
-        <button class="category-btn active" data-target="signature-rice">Signature Rice</button>
-        <button class="category-btn" data-target="executive-bowls">Executive Bowls</button>
+        <button class="category-btn active" data-target="signature-rice">Rice &amp; Mains</button>
+        <button class="category-btn" data-target="lounge-grills">Lounge Grills</button>
         <button class="category-btn" data-target="soup-swallow">Soup &amp; Swallow</button>
-        <button class="category-btn" data-target="proteins-sides">Grills &amp; Sides</button>
-        <button class="category-btn" data-target="signature-drinks">Beverages</button>
-        <button class="category-btn" data-target="desserts-extras">Desserts &amp; Extras</button>
+        <button class="category-btn" data-target="late-night-bites">Late Night Bites</button>
+        <button class="category-btn" data-target="signature-drinks">Cocktails &amp; Drinks</button>
     </nav>
 
     <main class="menu-container">
 
-        <!-- Signature Rice Section -->
+        <!-- Rice & Mains Section -->
         <div class="menu-section active" id="signature-rice">
-            <div class="section-title">Signature Rice Dishes</div>
+            <div class="section-title">Signature Rice &amp; Mains</div>
 
-            <div class="menu-item" data-name="Smokey Party Jollof" data-price="6500">
-                <img src="https://images.unsplash.com/photo-1604329760661-e71dc83f8f26?auto=format&fit=crop&w=200&q=80" class="item-img" alt="Smokey Party Jollof">
+            <div class="menu-item" data-name="Guzape Special Party Jollof" data-price="6500">
+                <img src="https://images.unsplash.com/photo-1604329760661-e71dc83f8f26?auto=format&fit=crop&w=200&q=80" class="item-img" alt="Party Jollof">
                 <div class="item-info">
-                    <h3>Smokey Party Jollof</h3>
-                    <p>Served with peppered chicken &amp; fried plantain</p>
+                    <h3>Guzape Special Party Jollof</h3>
+                    <p>Smokey party jollof served with fried plantain &amp; grilled chicken</p>
                     <div class="item-price">₦6,500</div>
                 </div>
                 <div class="item-action"></div>
             </div>
 
-            <div class="menu-item" data-name="Asun Fried Rice" data-price="8500">
-                <img src="https://images.unsplash.com/photo-1603133872878-684f208fb84b?auto=format&fit=crop&w=200&q=80" class="item-img" alt="Asun Fried Rice">
+            <div class="menu-item" data-name="Spice Spoon Fried Rice" data-price="7500">
+                <img src="https://images.unsplash.com/photo-1603133872878-684f208fb84b?auto=format&fit=crop&w=200&q=80" class="item-img" alt="Fried Rice">
                 <div class="item-info">
-                    <h3>Asun Fried Rice</h3>
-                    <p>Spicy stir-fry vegetable rice with boneless goat meat</p>
-                    <div class="item-price">₦8,500</div>
-                </div>
-                <div class="item-action"></div>
-            </div>
-
-            <div class="menu-item" data-name="Native Palm Oil Rice" data-price="7000">
-                <img src="https://images.unsplash.com/photo-1543339308-43e59d6b73a6?auto=format&fit=crop&w=200&q=80" class="item-img" alt="Native Palm Oil Rice">
-                <div class="item-info">
-                    <h3>Native Palm Oil Rice</h3>
-                    <p>Cooked with smoked mackerel, dried fish &amp; local spices</p>
-                    <div class="item-price">₦7,000</div>
-                </div>
-                <div class="item-action"></div>
-            </div>
-
-            <div class="menu-item" data-name="Coconut Jollof Rice" data-price="7500">
-                <img src="https://images.unsplash.com/photo-1541832676-9b763b0239ab?auto=format&fit=crop&w=200&q=80" class="item-img" alt="Coconut Jollof Rice">
-                <div class="item-info">
-                    <h3>Coconut Jollof Rice</h3>
-                    <p>Slow-simmered in coconut milk, served with grilled prawns</p>
+                    <h3>Spice Spoon Fried Rice</h3>
+                    <p>Wok-tossed vegetable rice loaded with diced beef, liver &amp; prawns</p>
                     <div class="item-price">₦7,500</div>
                 </div>
                 <div class="item-action"></div>
             </div>
 
-            <div class="menu-item" data-name="Ofada Rice & Ayamase" data-price="8000">
-                <img src="https://images.unsplash.com/photo-1512058564366-18510be2db19?auto=format&fit=crop&w=200&q=80" class="item-img" alt="Ofada Rice">
+            <div class="menu-item" data-name="Coconut Rice & Prawns" data-price="8500">
+                <img src="https://images.unsplash.com/photo-1541832676-9b763b0239ab?auto=format&fit=crop&w=200&q=80" class="item-img" alt="Coconut Rice">
                 <div class="item-info">
-                    <h3>Ofada Rice &amp; Ayamase</h3>
-                    <p>Local unpolished rice with spicy green pepper sauce &amp; boiled egg</p>
-                    <div class="item-price">₦8,000</div>
+                    <h3>Coconut Rice &amp; Tiger Prawns</h3>
+                    <p>Creamy coconut-infused rice served with sautéed jumbo prawns</p>
+                    <div class="item-price">₦8,500</div>
                 </div>
                 <div class="item-action"></div>
             </div>
 
-            <div class="menu-item" data-name="Seafood Fried Rice" data-price="9500">
-                <img src="https://images.unsplash.com/photo-1534422298391-e4f8c172dddb?auto=format&fit=crop&w=200&q=80" class="item-img" alt="Seafood Fried Rice">
+            <div class="menu-item" data-name="Asun Rice Combo" data-price="8500">
+                <img src="https://images.unsplash.com/photo-1512058564366-18510be2db19?auto=format&fit=crop&w=200&q=80" class="item-img" alt="Asun Rice">
                 <div class="item-info">
-                    <h3>Seafood Fried Rice</h3>
-                    <p>Wok-tossed rice with jumbo prawns, calamari &amp; sweet corn</p>
-                    <div class="item-price">₦9,500</div>
+                    <h3>Asun Rice Combo</h3>
+                    <p>Spicy fried rice topped with peppery smoked goat meat chunks</p>
+                    <div class="item-price">₦8,500</div>
                 </div>
                 <div class="item-action"></div>
             </div>
         </div>
 
-        <!-- Executive Bowls Section -->
-        <div class="menu-section" id="executive-bowls">
-            <div class="section-title">Executive Bowls</div>
+        <!-- Lounge Grills Section -->
+        <div class="menu-section" id="lounge-grills">
+            <div class="section-title">Lounge Grills &amp; Platters</div>
 
-            <div class="menu-item" data-name="Executive Protein Bowl" data-price="9000">
-                <img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&w=200&q=80" class="item-img" alt="Executive Bowl">
+            <div class="menu-item" data-name="Spice Spoon Mixed Grill Platter" data-price="18500">
+                <img src="https://images.unsplash.com/photo-1555939594-58d7cb561ad1?auto=format&fit=crop&w=200&q=80" class="item-img" alt="Mixed Grill">
                 <div class="item-info">
-                    <h3>Executive Protein Bowl</h3>
-                    <p>Jollof rice, grilled chicken, plantain &amp; coleslaw tray</p>
-                    <div class="item-price">₦9,000</div>
+                    <h3>Mixed Grill Platter</h3>
+                    <p>Suya skewers, spicy wings, grilled turkey, plantain &amp; yaji dip</p>
+                    <div class="item-price">₦18,500</div>
                 </div>
                 <div class="item-action"></div>
             </div>
 
-            <div class="menu-item" data-name="Surf & Turf Bowl" data-price="11000">
-                <img src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?auto=format&fit=crop&w=200&q=80" class="item-img" alt="Surf & Turf Bowl">
+            <div class="menu-item" data-name="Peppered Croaker Fish & Chips" data-price="9500">
+                <img src="https://images.unsplash.com/photo-1519708227418-c8fd9a32b7a2?auto=format&fit=crop&w=200&q=80" class="item-img" alt="Croaker Fish">
                 <div class="item-info">
-                    <h3>Surf &amp; Turf Bowl</h3>
-                    <p>Grilled tiger prawns, peppered beef, spicy fried rice &amp; salad</p>
-                    <div class="item-price">₦11,000</div>
+                    <h3>Peppered Croaker Fish &amp; Chips</h3>
+                    <p>Whole grilled croaker fish in spicy pepper sauce with fries</p>
+                    <div class="item-price">₦9,500</div>
                 </div>
                 <div class="item-action"></div>
             </div>
 
-            <div class="menu-item" data-name="Vegetarian Power Bowl" data-price="6500">
-                <img src="https://images.unsplash.com/photo-1540420773420-3366772f4999?auto=format&fit=crop&w=200&q=80" class="item-img" alt="Vegetarian Bowl">
+            <div class="menu-item" data-name="Suya Beef Skewers (4pcs)" data-price="5000">
+                <img src="https://images.unsplash.com/photo-1529193591184-b1d58069ecdd?auto=format&fit=crop&w=200&q=80" class="item-img" alt="Suya">
                 <div class="item-info">
-                    <h3>Vegetarian Power Bowl</h3>
-                    <p>Vegetable jollof, steamed moi moi, dodo &amp; sautéed spinach</p>
-                    <div class="item-price">₦6,500</div>
+                    <h3>Suya Beef Skewers (4pcs)</h3>
+                    <p>Tender flame-grilled beef slathered in authentic yaji spice</p>
+                    <div class="item-price">₦5,000</div>
                 </div>
                 <div class="item-action"></div>
             </div>
 
-            <div class="menu-item" data-name="Suya Grill Feast Bowl" data-price="10500">
-                <img src="https://images.unsplash.com/photo-1529193591184-b1d58069ecdd?auto=format&fit=crop&w=200&q=80" class="item-img" alt="Suya Grill Bowl">
+            <div class="menu-item" data-name="Honey Glazed Chicken Wings" data-price="4500">
+                <img src="https://images.unsplash.com/photo-1567620832903-9fc6debc209f?auto=format&fit=crop&w=200&q=80" class="item-img" alt="Wings">
                 <div class="item-info">
-                    <h3>Suya Grill Feast Bowl</h3>
-                    <p>Beef suya, chicken kebab, smoked rice &amp; spicy chili jam</p>
-                    <div class="item-price">₦10,500</div>
+                    <h3>Honey Glazed Chicken Wings</h3>
+                    <p>Crispy fried wings tossed in a sweet and spicy chili glaze</p>
+                    <div class="item-price">₦4,500</div>
                 </div>
                 <div class="item-action"></div>
             </div>
@@ -679,189 +656,104 @@
 
         <!-- Soup & Swallow Section -->
         <div class="menu-section" id="soup-swallow">
-            <div class="section-title">Soups &amp; Traditional Swallow</div>
+            <div class="section-title">Soups &amp; Swallow</div>
 
-            <div class="menu-item" data-name="Pounded Yam & Egusi" data-price="8500">
-                <img src="https://images.unsplash.com/photo-1547496592-1b9d4ee69254?auto=format&fit=crop&w=200&q=80" class="item-img" alt="Egusi Soup">
+            <div class="menu-item" data-name="Pounded Yam & Seafood Egusi" data-price="9000">
+                <img src="https://images.unsplash.com/photo-1547496592-1b9d4ee69254?auto=format&fit=crop&w=200&q=80" class="item-img" alt="Egusi">
                 <div class="item-info">
-                    <h3>Pounded Yam &amp; Egusi</h3>
-                    <p>Rich melon soup cooked with stockfish, beef &amp; fresh spinach</p>
-                    <div class="item-price">₦8,500</div>
+                    <h3>Pounded Yam &amp; Seafood Egusi</h3>
+                    <p>Rich melon soup with assorted meat, stockfish &amp; fresh prawns</p>
+                    <div class="item-price">₦9,000</div>
                 </div>
                 <div class="item-action"></div>
             </div>
 
-            <div class="menu-item" data-name="Seafood Okra & Amala" data-price="10500">
-                <img src="https://images.unsplash.com/photo-1512058564366-18510be2db19?auto=format&fit=crop&w=200&q=80" class="item-img" alt="Seafood Okra">
-                <div class="item-info">
-                    <h3>Seafood Okra &amp; Amala</h3>
-                    <p>Fresh okra soup loaded with crab, prawns, snail &amp; fish</p>
-                    <div class="item-price">₦10,500</div>
-                </div>
-                <div class="item-action"></div>
-            </div>
-
-            <div class="menu-item" data-name="Efo Riro & Wheat" data-price="8000">
+            <div class="menu-item" data-name="Efo Riro & Wheat Meal" data-price="8000">
                 <img src="https://images.unsplash.com/photo-1546833999-b9f581a1996d?auto=format&fit=crop&w=200&q=80" class="item-img" alt="Efo Riro">
                 <div class="item-info">
                     <h3>Efo Riro &amp; Wheat Meal</h3>
-                    <p>Rich vegetable stew with assorted meat, locust beans &amp; ponmo</p>
+                    <p>Classic vegetable stew loaded with ponmo, beef and locust beans</p>
                     <div class="item-price">₦8,000</div>
                 </div>
                 <div class="item-action"></div>
             </div>
 
             <div class="menu-item" data-name="Goat Meat Pepper Soup" data-price="6000">
-                <img src="https://images.unsplash.com/photo-1547592166-23ac45744acd?auto=format&fit=crop&w=200&q=80" class="item-img" alt="Goat Meat Pepper Soup">
+                <img src="https://images.unsplash.com/photo-1547592166-23ac45744acd?auto=format&fit=crop&w=200&q=80" class="item-img" alt="Pepper Soup">
                 <div class="item-info">
                     <h3>Goat Meat Pepper Soup</h3>
-                    <p>Spicy broth infused with native herbs &amp; tender goat meat</p>
+                    <p>Hot, heavily spiced traditional broth with tender chunks of goat meat</p>
                     <div class="item-price">₦6,000</div>
                 </div>
                 <div class="item-action"></div>
             </div>
         </div>
 
-        <!-- Proteins & Sides Section -->
-        <div class="menu-section" id="proteins-sides">
-            <div class="section-title">Grills &amp; Side Dishes</div>
+        <!-- Late Night Bites Section -->
+        <div class="menu-section" id="late-night-bites">
+            <div class="section-title">24/7 Late Night Bites</div>
 
-            <div class="menu-item" data-name="Peppered Turkey Wing" data-price="4500">
-                <img src="https://images.unsplash.com/photo-1527477396000-e27163b481c2?auto=format&fit=crop&w=200&q=80" class="item-img" alt="Peppered Turkey Wing">
+            <div class="menu-item" data-name="Spice Spoon Club Sandwich" data-price="5500">
+                <img src="https://images.unsplash.com/photo-1528735602780-2552fd46c7af?auto=format&fit=crop&w=200&q=80" class="item-img" alt="Club Sandwich">
                 <div class="item-info">
-                    <h3>Peppered Turkey Wing</h3>
-                    <p>Slow-roasted in house spicy pepper sauce</p>
-                    <div class="item-price">₦4,500</div>
+                    <h3>Spice Spoon Club Sandwich</h3>
+                    <p>Triple-decker layered with chicken, fried egg, bacon &amp; fries</p>
+                    <div class="item-price">₦5,500</div>
                 </div>
                 <div class="item-action"></div>
             </div>
 
-            <div class="menu-item" data-name="Suya Beef Skewers" data-price="5000">
-                <img src="https://images.unsplash.com/photo-1555939594-58d7cb561ad1?auto=format&fit=crop&w=200&q=80" class="item-img" alt="Suya Beef Skewers">
+            <div class="menu-item" data-name="Loaded Suya Burger & Fries" data-price="6500">
+                <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=200&q=80" class="item-img" alt="Burger">
                 <div class="item-info">
-                    <h3>Suya Beef Skewers</h3>
-                    <p>Char-grilled beef strips coated in yaji spice</p>
-                    <div class="item-price">₦5,000</div>
+                    <h3>Loaded Suya Burger &amp; Fries</h3>
+                    <p>Beef patty infused with suya spices, cheddar cheese &amp; fries</p>
+                    <div class="item-price">₦6,500</div>
                 </div>
                 <div class="item-action"></div>
             </div>
 
-            <div class="menu-item" data-name="Grilled Whole Tilapia" data-price="7500">
-                <img src="https://images.unsplash.com/photo-1519708227418-c8fd9a32b7a2?auto=format&fit=crop&w=200&q=80" class="item-img" alt="Grilled Tilapia">
-                <div class="item-info">
-                    <h3>Grilled Whole Tilapia</h3>
-                    <p>Flame-grilled fish garnished with spicy tomato &amp; onion sauce</p>
-                    <div class="item-price">₦7,500</div>
-                </div>
-                <div class="item-action"></div>
-            </div>
-
-            <div class="menu-item" data-name="Fried Plantain (Dodo)" data-price="1500">
-                <img src="https://images.unsplash.com/photo-1628102491629-778571d893a3?auto=format&fit=crop&w=200&q=80" class="item-img" alt="Fried Plantain">
-                <div class="item-info">
-                    <h3>Fried Plantain (Dodo)</h3>
-                    <p>Sweet ripe plantain slices, fried golden brown</p>
-                    <div class="item-price">₦1,500</div>
-                </div>
-                <div class="item-action"></div>
-            </div>
-
-            <div class="menu-item" data-name="Special Egg Moi Moi" data-price="2000">
-                <img src="https://images.unsplash.com/photo-1546833999-b9f581a1996d?auto=format&fit=crop&w=200&q=80" class="item-img" alt="Moi Moi">
-                <div class="item-info">
-                    <h3>Special Egg Moi Moi</h3>
-                    <p>Steamed bean pudding with hard-boiled egg &amp; fish flakes</p>
-                    <div class="item-price">₦2,000</div>
-                </div>
-                <div class="item-action"></div>
-            </div>
-
-            <div class="menu-item" data-name="Crispy Chicken Wings (6pcs)" data-price="4000">
-                <img src="https://images.unsplash.com/photo-1567620832903-9fc6debc209f?auto=format&fit=crop&w=200&q=80" class="item-img" alt="Crispy Chicken Wings">
-                <div class="item-info">
-                    <h3>Crispy Chicken Wings (6pcs)</h3>
-                    <p>Deep-fried spicy wings tossed in sweet honey glaze</p>
-                    <div class="item-price">₦4,000</div>
-                </div>
-                <div class="item-action"></div>
-            </div>
-        </div>
-
-        <!-- Beverages Section -->
-        <div class="menu-section" id="signature-drinks">
-            <div class="section-title">Signature Beverages</div>
-
-            <div class="menu-item" data-name="Chilled Zobo Mocktail" data-price="2000">
-                <img src="https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?auto=format&fit=crop&w=200&q=80" class="item-img" alt="Zobo Drink">
-                <div class="item-info">
-                    <h3>Chilled Zobo Mocktail</h3>
-                    <p>Hibiscus tea infused with pineapple, ginger &amp; mint leaves</p>
-                    <div class="item-price">₦2,000</div>
-                </div>
-                <div class="item-action"></div>
-            </div>
-
-            <div class="menu-item" data-name="Fresh Watermelon Juice" data-price="2500">
-                <img src="https://images.unsplash.com/photo-1589733955941-5eeaf752f6dd?auto=format&fit=crop&w=200&q=80" class="item-img" alt="Watermelon Juice">
-                <div class="item-info">
-                    <h3>Fresh Watermelon Juice</h3>
-                    <p>100% natural cold-pressed fresh fruit juice</p>
-                    <div class="item-price">₦2,500</div>
-                </div>
-                <div class="item-action"></div>
-            </div>
-
-            <div class="menu-item" data-name="Iced Tiger Nut Drink (Kunu Aya)" data-price="2500">
-                <img src="https://images.unsplash.com/photo-1556881286-fc6915169721?auto=format&fit=crop&w=200&q=80" class="item-img" alt="Tiger Nut Drink">
-                <div class="item-info">
-                    <h3>Iced Tiger Nut Drink</h3>
-                    <p>Creamy tiger nut blend with dates &amp; subtle coconut twist</p>
-                    <div class="item-price">₦2,500</div>
-                </div>
-                <div class="item-action"></div>
-            </div>
-
-            <div class="menu-item" data-name="Chapman Cocktail" data-price="3000">
-                <img src="https://images.unsplash.com/photo-1551024709-8f23befc6f87?auto=format&fit=crop&w=200&q=80" class="item-img" alt="Chapman Cocktail">
-                <div class="item-info">
-                    <h3>Chapman Cocktail</h3>
-                    <p>Classic Nigerian refreshing drink with bitters &amp; fresh cucumber</p>
-                    <div class="item-price">₦3,000</div>
-                </div>
-                <div class="item-action"></div>
-            </div>
-        </div>
-
-        <!-- Desserts & Extras Section -->
-        <div class="menu-section" id="desserts-extras">
-            <div class="section-title">Desserts &amp; Extras</div>
-
-            <div class="menu-item" data-name="Puff Puff Platter (8pcs)" data-price="1500">
+            <div class="menu-item" data-name="Puff Puff Platter (10pcs)" data-price="1500">
                 <img src="https://images.unsplash.com/photo-1528605248644-14dd04022da1?auto=format&fit=crop&w=200&q=80" class="item-img" alt="Puff Puff">
                 <div class="item-info">
-                    <h3>Puff Puff Platter (8pcs)</h3>
-                    <p>Warm sweet dough balls dusted with cinnamon sugar</p>
+                    <h3>Puff Puff Platter (10pcs)</h3>
+                    <p>Warm golden dough balls dusted with sweet cinnamon sugar</p>
                     <div class="item-price">₦1,500</div>
                 </div>
                 <div class="item-action"></div>
             </div>
+        </div>
 
-            <div class="menu-item" data-name="Creamy Coleslaw Extra" data-price="1000">
-                <img src="https://images.unsplash.com/photo-1625938145744-e380515399b7?auto=format&fit=crop&w=200&q=80" class="item-img" alt="Coleslaw">
+        <!-- Cocktails & Drinks Section -->
+        <div class="menu-section" id="signature-drinks">
+            <div class="section-title">Cocktails &amp; Beverages</div>
+
+            <div class="menu-item" data-name="Spice Spoon Signature Chapman" data-price="3500">
+                <img src="https://images.unsplash.com/photo-1551024709-8f23befc6f87?auto=format&fit=crop&w=200&q=80" class="item-img" alt="Chapman">
                 <div class="item-info">
-                    <h3>Creamy Coleslaw Extra</h3>
-                    <p>Shredded cabbage and carrots tossed in rich mayonnaise</p>
-                    <div class="item-price">₦1,000</div>
+                    <h3>Signature Chapman Cocktail</h3>
+                    <p>Refreshing blend of fruit juices, bitters, cucumber &amp; sprite</p>
+                    <div class="item-price">₦3,500</div>
                 </div>
                 <div class="item-action"></div>
             </div>
 
-            <div class="menu-item" data-name="Extra Grilled Chicken Quarter" data-price="3000">
-                <img src="https://images.unsplash.com/photo-1598515214211-89d3c73ae83b?auto=format&fit=crop&w=200&q=80" class="item-img" alt="Grilled Chicken">
+            <div class="menu-item" data-name="Iced Zobo Infusion" data-price="2000">
+                <img src="https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?auto=format&fit=crop&w=200&q=80" class="item-img" alt="Zobo">
                 <div class="item-info">
-                    <h3>Extra Grilled Chicken Quarter</h3>
-                    <p>Flame-broiled chicken thigh &amp; drumstick option</p>
-                    <div class="item-price">₦3,000</div>
+                    <h3>Iced Zobo Infusion</h3>
+                    <p>Chilled hibiscus drink brewed with fresh ginger, pineapple &amp; mint</p>
+                    <div class="item-price">₦2,000</div>
+                </div>
+                <div class="item-action"></div>
+            </div>
+
+            <div class="menu-item" data-name="Fresh Cold-Pressed Juice" data-price="2500">
+                <img src="https://images.unsplash.com/photo-1589733955941-5eeaf752f6dd?auto=format&fit=crop&w=200&q=80" class="item-img" alt="Juice">
+                <div class="item-info">
+                    <h3>Fresh Cold-Pressed Juice</h3>
+                    <p>Choice of watermelon, pineapple, or tropical mix</p>
+                    <div class="item-price">₦2,500</div>
                 </div>
                 <div class="item-action"></div>
             </div>
@@ -889,13 +781,13 @@
             <h2>Your Order Details</h2>
 
             <div class="order-type-toggle">
-                <button type="button" id="pickup-btn" class="active">Pickup</button>
+                <button type="button" id="pickup-btn" class="active">Pickup / Dine-In</button>
                 <button type="button" id="delivery-btn">Delivery</button>
             </div>
 
             <div class="form-group" id="group-name">
                 <label for="cust-name">Full Name *</label>
-                <input type="text" id="cust-name" placeholder="e.g. Amaka Obi">
+                <input type="text" id="cust-name" placeholder="e.g. Chinedu Eze">
                 <div class="error-text">Please enter your name.</div>
             </div>
 
@@ -906,14 +798,14 @@
             </div>
 
             <div class="form-group" id="group-address" style="display:none;">
-                <label for="cust-address">Delivery Address *</label>
-                <textarea id="cust-address" placeholder="Street, area, landmark"></textarea>
+                <label for="cust-address">Delivery Address (Guzape / Abuja) *</label>
+                <textarea id="cust-address" placeholder="Street, apartment, landmark"></textarea>
                 <div class="error-text">Please enter a delivery address.</div>
             </div>
 
             <div class="form-group">
                 <label for="cust-notes">Notes (optional)</label>
-                <textarea id="cust-notes" placeholder="Allergies, spice level, special requests..."></textarea>
+                <textarea id="cust-notes" placeholder="Spice level, table reservation, special requests..."></textarea>
             </div>
 
             <div class="modal-actions">
@@ -924,16 +816,14 @@
     </div>
 
     <script>
-        // Register Service Worker for PWA
         if ('serviceWorker' in navigator) {
             window.addEventListener('load', () => {
                 navigator.serviceWorker.register('./sw.js')
                     .then(reg => console.log('PWA Service Worker registered'))
-                    .catch(err => console.log('Service Worker registration failed:', err));
+                    .catch(err => console.log('Service Worker skipped or failed:', err));
             });
         }
 
-        // Guaranteed Banner & Guide Modal Logic
         let deferredPrompt;
         const banner = document.getElementById('pwa-install-banner');
         const installBtn = document.getElementById('pwa-install-btn');
@@ -946,14 +836,12 @@
         const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
         const isStandalone = window.matchMedia('(display-mode: standalone)').matches || window.navigator.standalone;
 
-        // Hide banner if app is already running as standalone app
         if (isStandalone) {
             banner.style.display = 'none';
         } else {
-            // Show banner after a short delay (allows page to load first)
             setTimeout(() => {
                 banner.style.display = 'flex';
-            }, 2000); // 2 second delay
+            }, 2000);
         }
 
         window.addEventListener('beforeinstallprompt', (e) => {
@@ -976,7 +864,6 @@
                 androidSteps.style.display = 'none';
                 guideModal.classList.add('open');
             } else {
-                // Fallback for desktop/android browsers when prompt is unavailable
                 androidSteps.style.display = 'block';
                 iosSteps.style.display = 'none';
                 guideModal.classList.add('open');
@@ -991,25 +878,31 @@
             guideModal.classList.remove('open');
         });
 
-        // Close guide modal when clicking outside
         guideModal.addEventListener('click', (e) => {
             if (e.target === guideModal) {
                 guideModal.classList.remove('open');
             }
         });
 
-        // Cart & Ordering
         document.addEventListener('DOMContentLoaded', () => {
             let cart = [];
-            let orderType = 'Pickup';
+            let orderType = 'Pickup / Dine-In';
 
             const categoryBtns = document.querySelectorAll('.category-btn');
+            const categoryNav = document.querySelector('.category-nav');
+
             categoryBtns.forEach(btn => {
                 btn.addEventListener('click', () => {
                     categoryBtns.forEach(b => b.classList.remove('active'));
                     btn.classList.add('active');
                     document.querySelectorAll('.menu-section').forEach(s => s.classList.remove('active'));
-                    document.getElementById(btn.dataset.target).classList.add('active');
+                    
+                    const targetEl = document.getElementById(btn.dataset.target);
+                    targetEl.classList.add('active');
+
+                    const navHeight = categoryNav.getBoundingClientRect().height;
+                    const targetPosition = targetEl.getBoundingClientRect().top + window.pageYOffset - navHeight - 10;
+                    window.scrollTo({ top: targetPosition, behavior: 'smooth' });
                 });
             });
 
@@ -1099,13 +992,11 @@
             }
 
             document.getElementById('cart-summary-row').addEventListener('click', (e) => {
-                // Only toggle if not clicking the checkout button
                 if (!e.target.closest('#checkout-btn')) {
                     document.getElementById('cart-details').classList.toggle('open');
                 }
             });
 
-            // Separate event listener for checkout button
             document.getElementById('checkout-btn').addEventListener('click', (e) => {
                 e.stopPropagation();
                 if (cart.length === 0) return;
@@ -1121,7 +1012,6 @@
                 overlay.classList.remove('open');
             });
 
-            // Close modal when clicking outside
             overlay.addEventListener('click', (e) => {
                 if (e.target === overlay) {
                     overlay.classList.remove('open');
@@ -1129,7 +1019,7 @@
             });
 
             pickupBtn.addEventListener('click', () => {
-                orderType = 'Pickup';
+                orderType = 'Pickup / Dine-In';
                 pickupBtn.classList.add('active');
                 deliveryBtn.classList.remove('active');
                 addressGroup.style.display = 'none';
@@ -1174,11 +1064,11 @@
             });
 
             function sendWhatsAppOrder({ name, phone, address, notes }) {
-                const restaurantWhatsApp = "2348182006644";
+                const restaurantWhatsApp = "2348182006644"; // Update with specific lounge number if needed
                 const totalPrice = cart.reduce((sum, i) => sum + i.qty * i.price, 0);
 
                 let lines = [];
-                lines.push('Hello Spice & Rice Bistro! I would like to place an order:');
+                lines.push('Hello Spice Spoon Restaurant & Lounge! I would like to place an order:');
                 lines.push('');
                 cart.forEach((item, index) => {
                     lines.push(`${index + 1}. ${item.name} x${item.qty} - ₦${(item.qty * item.price).toLocaleString()}`);
@@ -1200,7 +1090,6 @@
                 window.open(`https://wa.me/${restaurantWhatsApp}?text=${message}`, '_blank');
                 overlay.classList.remove('open');
                 
-                // Clear cart after successful order
                 cart = [];
                 renderAll();
             }
