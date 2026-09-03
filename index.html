@@ -3,21 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Spice & Rice Bistro | Maitama Executive Dining</title>
+    <title>Spice &amp; Rice Bistro | Maitama Executive Dining</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --bg-color: #0a0a0a;
-            --card-bg: #161412;
+            --bg-color: #0d0b09;
+            --card-bg: #161311;
             --accent-gold: #d4af37;
             --accent-gold-soft: #f0d789;
             --text-main: #f5f0e6;
-            --text-muted: #9a9186;
+            --text-muted: #a39a90;
             --whatsapp-green: #25d366;
             --danger: #e5533c;
-            --border: #2c2822;
+            --border: #2a241e;
         }
 
         * {
@@ -27,52 +27,49 @@
             font-family: 'Poppins', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
         }
 
-        button, input, textarea, select {
-            font-family: 'Poppins', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-        }
-
         body {
             background-color: var(--bg-color);
             background-image:
-                radial-gradient(circle at 20% 10%, rgba(212,175,55,0.05), transparent 40%),
-                radial-gradient(circle at 80% 0%, rgba(212,175,55,0.04), transparent 35%);
+                radial-gradient(circle at 15% 10%, rgba(212,175,55,0.06), transparent 45%),
+                radial-gradient(circle at 85% 20%, rgba(212,175,55,0.04), transparent 40%);
             color: var(--text-main);
-            padding-bottom: 200px;
+            padding-bottom: 140px;
         }
 
         header {
-            background: linear-gradient(rgba(10,10,10,0.75), var(--bg-color)), url('https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&w=800&q=80') center/cover;
-            padding: 56px 20px 30px;
+            background: linear-gradient(180deg, rgba(13,11,9,0.5) 0%, var(--bg-color) 100%), 
+                        url('https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&w=1000&q=80') center/cover;
+            padding: 64px 20px 36px;
             text-align: center;
             border-bottom: 1px solid var(--border);
             position: relative;
         }
 
         header h1 {
+            font-family: 'Cinzel', serif;
             color: var(--accent-gold);
             background: linear-gradient(180deg, var(--accent-gold-soft), var(--accent-gold));
             -webkit-background-clip: text;
             background-clip: text;
             -webkit-text-fill-color: transparent;
             font-weight: 700;
-            font-size: 2rem;
-            letter-spacing: 3.5px;
+            font-size: 2.2rem;
+            letter-spacing: 2px;
             margin-bottom: 12px;
-            text-shadow: 0 0 40px rgba(212,175,55,0.25);
         }
 
         header .divider {
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 8px;
+            gap: 12px;
             margin: 0 auto 14px;
         }
 
         header .divider::before,
         header .divider::after {
             content: '';
-            width: 32px;
+            width: 40px;
             height: 1px;
             background: linear-gradient(90deg, transparent, var(--accent-gold));
         }
@@ -82,60 +79,66 @@
         }
 
         header .divider span {
-            width: 5px;
-            height: 5px;
+            width: 6px;
+            height: 6px;
             background: var(--accent-gold);
             transform: rotate(45deg);
         }
 
         header p {
             color: var(--text-muted);
-            font-size: 0.85rem;
-            font-weight: 300;
-            letter-spacing: 1.5px;
-            text-transform: uppercase;
-        }
+            font-size: 0.8rem;
+            font-weight: 400;
+            letter-spacing: 2px;
             text-transform: uppercase;
         }
 
+        /* Sticky Nav */
         .category-nav {
             display: flex;
             gap: 10px;
             overflow-x: auto;
-            padding: 15px 20px;
+            padding: 14px 20px;
             position: sticky;
             top: 0;
-            background-color: var(--bg-color);
+            background: rgba(13, 11, 9, 0.85);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
             z-index: 10;
             border-bottom: 1px solid var(--border);
-            box-shadow: 0 8px 16px -8px rgba(0,0,0,0.6);
+            scrollbar-width: none;
+        }
+
+        .category-nav::-webkit-scrollbar {
+            display: none;
         }
 
         .category-btn {
             background: var(--card-bg);
             color: var(--text-muted);
             border: 1px solid var(--border);
-            padding: 9px 18px;
-            border-radius: 20px;
-            font-size: 0.78rem;
+            padding: 10px 20px;
+            border-radius: 30px;
+            font-size: 0.8rem;
             font-weight: 500;
             letter-spacing: 0.5px;
             white-space: nowrap;
             cursor: pointer;
-            transition: 0.2s;
+            transition: all 0.25s ease;
         }
 
         .category-btn.active {
             background: linear-gradient(135deg, var(--accent-gold-soft), var(--accent-gold));
-            color: #0a0a0a;
+            color: #0d0b09;
             font-weight: 600;
             border-color: var(--accent-gold);
-            box-shadow: 0 4px 14px rgba(212,175,55,0.3);
+            box-shadow: 0 4px 16px rgba(212,175,55,0.25);
         }
 
+        /* Menu Container */
         .menu-container {
             padding: 20px;
-            max-width: 600px;
+            max-width: 680px;
             margin: 0 auto;
         }
 
@@ -148,15 +151,16 @@
         }
 
         .section-title {
+            font-family: 'Cinzel', serif;
             color: var(--accent-gold);
-            font-size: 1rem;
+            font-size: 1.05rem;
             font-weight: 600;
-            margin: 28px 0 16px;
+            margin: 24px 0 16px;
             letter-spacing: 1.5px;
             text-transform: uppercase;
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 12px;
         }
 
         .section-title::before {
@@ -176,39 +180,50 @@
         }
 
         .menu-item {
-            background: linear-gradient(135deg, #171310, var(--card-bg));
+            background: var(--card-bg);
             border: 1px solid var(--border);
-            border-left: 2px solid var(--accent-gold);
-            border-radius: 4px;
-            padding: 16px;
-            margin-bottom: 12px;
+            border-left: 3px solid var(--accent-gold);
+            border-radius: 8px;
+            padding: 14px;
+            margin-bottom: 14px;
             display: flex;
-            justify-content: space-between;
             align-items: center;
-            gap: 10px;
-            box-shadow: 0 4px 14px rgba(0,0,0,0.35);
-            transition: border-color 0.25s, transform 0.25s, box-shadow 0.25s;
+            gap: 14px;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.4);
+            transition: transform 0.25s ease, border-color 0.25s ease;
         }
 
         .menu-item:hover {
             transform: translateY(-2px);
             border-color: var(--accent-gold);
-            box-shadow: 0 8px 22px rgba(0,0,0,0.45), 0 0 0 1px rgba(212,175,55,0.25);
+        }
+
+        .item-img {
+            width: 80px;
+            height: 80px;
+            border-radius: 6px;
+            object-fit: cover;
+            flex-shrink: 0;
+            border: 1px solid var(--border);
+        }
+
+        .item-info {
+            flex: 1;
         }
 
         .item-info h3 {
-            font-size: 1rem;
-            font-weight: 500;
+            font-size: 0.98rem;
+            font-weight: 600;
             margin-bottom: 4px;
-            letter-spacing: 0.3px;
+            color: var(--text-main);
         }
 
         .item-info p {
             color: var(--text-muted);
             font-size: 0.78rem;
             font-weight: 300;
-            margin-bottom: 10px;
-            line-height: 1.4;
+            margin-bottom: 8px;
+            line-height: 1.35;
         }
 
         .item-price {
@@ -217,74 +232,72 @@
             font-weight: 600;
             font-size: 0.85rem;
             letter-spacing: 0.5px;
-            background: rgba(212,175,55,0.1);
-            border: 1px solid rgba(212,175,55,0.3);
-            padding: 3px 10px;
-            border-radius: 20px;
         }
 
         .add-btn {
-            background-color: transparent;
+            background: transparent;
             border: 1px solid var(--accent-gold);
             color: var(--accent-gold);
-            padding: 7px 16px;
-            border-radius: 4px;
+            padding: 8px 16px;
+            border-radius: 6px;
             font-weight: 500;
-            font-size: 0.82rem;
-            letter-spacing: 0.5px;
+            font-size: 0.8rem;
             cursor: pointer;
-            transition: 0.2s;
+            transition: all 0.2s ease;
             flex-shrink: 0;
         }
 
         .add-btn:hover {
             background: linear-gradient(135deg, var(--accent-gold-soft), var(--accent-gold));
-            color: #0a0a0a;
-            border-color: var(--accent-gold);
+            color: #0d0b09;
         }
 
         .qty-control {
             display: flex;
             align-items: center;
             gap: 8px;
-            flex-shrink: 0;
+            background: var(--bg-color);
+            padding: 4px 8px;
+            border-radius: 6px;
+            border: 1px solid var(--border);
         }
 
         .qty-control button {
-            width: 28px;
-            height: 28px;
-            border-radius: 6px;
-            border: 1px solid var(--border);
-            background: var(--bg-color);
-            color: var(--text-main);
+            width: 26px;
+            height: 26px;
+            border-radius: 4px;
+            border: none;
+            background: var(--card-bg);
+            color: var(--accent-gold);
             font-size: 1rem;
+            font-weight: bold;
             cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
         .qty-control span {
-            min-width: 18px;
+            min-width: 20px;
             text-align: center;
-            font-weight: bold;
-        }
-
-        .empty-state {
-            color: var(--text-muted);
+            font-weight: 600;
             font-size: 0.85rem;
-            padding: 8px 0;
         }
 
-        /* Cart drawer */
+        /* Fixed Cart Bar */
         .cart-bar {
             position: fixed;
             bottom: 0;
             left: 0;
             right: 0;
-            background-color: var(--card-bg);
+            background: rgba(22, 19, 17, 0.95);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
             border-top: 1px solid var(--accent-gold);
-            max-width: 600px;
+            max-width: 680px;
             margin: 0 auto;
             z-index: 20;
-            box-shadow: 0 -10px 24px rgba(0,0,0,0.5);
+            box-shadow: 0 -10px 30px rgba(0,0,0,0.7);
         }
 
         .cart-summary-row {
@@ -297,31 +310,32 @@
 
         .checkout-btn {
             background: linear-gradient(135deg, var(--accent-gold-soft), var(--accent-gold));
-            color: #0a0a0a;
+            color: #0d0b09;
             border: none;
-            padding: 11px 22px;
+            padding: 12px 24px;
             border-radius: 6px;
             font-weight: 600;
             font-size: 0.85rem;
             letter-spacing: 0.5px;
             cursor: pointer;
-            box-shadow: 0 4px 16px rgba(212,175,55,0.35);
+            transition: opacity 0.2s;
         }
 
         .checkout-btn:disabled {
-            opacity: 0.5;
+            opacity: 0.4;
             cursor: not-allowed;
         }
 
         .cart-details {
             max-height: 0;
             overflow: hidden;
-            transition: max-height 0.25s ease;
+            transition: max-height 0.3s ease-in-out;
             border-top: 1px solid var(--border);
+            background: var(--bg-color);
         }
 
         .cart-details.open {
-            max-height: 240px;
+            max-height: 260px;
             overflow-y: auto;
         }
 
@@ -329,7 +343,7 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 10px 20px;
+            padding: 12px 20px;
             border-bottom: 1px solid var(--border);
             font-size: 0.85rem;
         }
@@ -340,17 +354,16 @@
             border: none;
             font-size: 0.8rem;
             cursor: pointer;
-            text-decoration: underline;
         }
 
-        /* Modal for customer details */
+        /* Modal overlay */
         .modal-overlay {
             display: none;
             position: fixed;
             inset: 0;
-            background: rgba(0,0,0,0.7);
-            backdrop-filter: blur(4px);
-            -webkit-backdrop-filter: blur(4px);
+            background: rgba(0,0,0,0.8);
+            backdrop-filter: blur(6px);
+            -webkit-backdrop-filter: blur(6px);
             z-index: 50;
             align-items: flex-end;
             justify-content: center;
@@ -363,21 +376,20 @@
         .modal {
             background: var(--card-bg);
             width: 100%;
-            max-width: 600px;
+            max-width: 680px;
             border-radius: 16px 16px 0 0;
             border-top: 1px solid var(--accent-gold);
             padding: 24px 20px;
             max-height: 85vh;
             overflow-y: auto;
-            box-shadow: 0 -12px 30px rgba(0,0,0,0.5);
         }
 
         .modal h2 {
+            font-family: 'Cinzel', serif;
             color: var(--accent-gold);
             font-weight: 600;
-            font-size: 1.15rem;
-            letter-spacing: 0.5px;
-            margin-bottom: 18px;
+            font-size: 1.2rem;
+            margin-bottom: 20px;
         }
 
         .form-group {
@@ -387,10 +399,10 @@
         .form-group label {
             display: block;
             font-size: 0.75rem;
-            font-weight: 400;
-            letter-spacing: 0.5px;
             color: var(--text-muted);
             margin-bottom: 6px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
         }
 
         .form-group input,
@@ -399,25 +411,15 @@
             background: var(--bg-color);
             border: 1px solid var(--border);
             color: var(--text-main);
-            padding: 11px 13px;
+            padding: 12px 14px;
             border-radius: 6px;
             font-size: 0.9rem;
-            font-family: 'Poppins', sans-serif;
         }
 
         .form-group input:focus,
         .form-group textarea:focus {
             outline: none;
             border-color: var(--accent-gold);
-        }
-
-        .form-group textarea {
-            resize: vertical;
-            min-height: 60px;
-        }
-
-        .required-mark {
-            color: var(--danger);
         }
 
         .error-text {
@@ -439,26 +441,24 @@
         .order-type-toggle {
             display: flex;
             gap: 10px;
-            margin-bottom: 14px;
+            margin-bottom: 18px;
         }
 
         .order-type-toggle button {
             flex: 1;
-            padding: 11px;
+            padding: 12px;
             border-radius: 6px;
             border: 1px solid var(--border);
             background: var(--bg-color);
             color: var(--text-main);
             cursor: pointer;
-            font-size: 0.82rem;
-            font-weight: 400;
-            letter-spacing: 0.5px;
-            transition: 0.2s;
+            font-size: 0.85rem;
+            transition: all 0.2s;
         }
 
         .order-type-toggle button.active {
             background: linear-gradient(135deg, var(--accent-gold-soft), var(--accent-gold));
-            color: #0a0a0a;
+            color: #0d0b09;
             border-color: var(--accent-gold);
             font-weight: 600;
         }
@@ -466,16 +466,15 @@
         .modal-actions {
             display: flex;
             gap: 10px;
-            margin-top: 8px;
+            margin-top: 12px;
         }
 
         .modal-actions button {
             flex: 1;
-            padding: 13px;
+            padding: 14px;
             border-radius: 6px;
             font-weight: 600;
-            font-size: 0.88rem;
-            letter-spacing: 0.5px;
+            font-size: 0.9rem;
             cursor: pointer;
             border: none;
         }
@@ -497,30 +496,32 @@
     <header>
         <h1>Spice &amp; Rice Bistro</h1>
         <div class="divider"><span></span></div>
-        <p>Maitama Executive Lunch & Express Orders</p>
+        <p>Maitama Executive Lunch &amp; Express Orders</p>
     </header>
 
-    <div class="category-nav">
+    <nav class="category-nav">
         <button class="category-btn active" data-target="signature-rice">Signature Rice</button>
-        <button class="category-btn" data-target="proteins-sides">Grills & Sides</button>
+        <button class="category-btn" data-target="proteins-sides">Grills &amp; Sides</button>
         <button class="category-btn" data-target="executive-bowls">Executive Bowls</button>
-    </div>
+    </nav>
 
-    <div class="menu-container">
+    <main class="menu-container">
 
         <div class="menu-section active" id="signature-rice">
             <div class="section-title">Signature Rice Dishes</div>
 
             <div class="menu-item" data-name="Smokey Party Jollof" data-price="6500">
+                <img src="https://images.unsplash.com/photo-1604329760661-e71dc83f8f26?auto=format&fit=crop&w=200&q=80" class="item-img" alt="Smokey Party Jollof">
                 <div class="item-info">
                     <h3>Smokey Party Jollof</h3>
-                    <p>Served with peppered chicken & fried plantain</p>
+                    <p>Served with peppered chicken &amp; fried plantain</p>
                     <div class="item-price">₦6,500</div>
                 </div>
                 <div class="item-action"></div>
             </div>
 
             <div class="menu-item" data-name="Asun Fried Rice" data-price="8500">
+                <img src="https://images.unsplash.com/photo-1603133872878-684f208fb84b?auto=format&fit=crop&w=200&q=80" class="item-img" alt="Asun Fried Rice">
                 <div class="item-info">
                     <h3>Asun Fried Rice</h3>
                     <p>Spicy stir-fry vegetable rice with boneless goat meat</p>
@@ -530,15 +531,17 @@
             </div>
 
             <div class="menu-item" data-name="Native Palm Oil Rice" data-price="7000">
+                <img src="https://images.unsplash.com/photo-1596797882870-8c33deeac224?auto=format&fit=crop&w=200&q=80" class="item-img" alt="Native Palm Oil Rice">
                 <div class="item-info">
                     <h3>Native Palm Oil Rice</h3>
-                    <p>Cooked with smoked mackerel, dried fish & local spices</p>
+                    <p>Cooked with smoked mackerel, dried fish &amp; local spices</p>
                     <div class="item-price">₦7,000</div>
                 </div>
                 <div class="item-action"></div>
             </div>
 
             <div class="menu-item" data-name="Coconut Jollof Rice" data-price="7500">
+                <img src="https://images.unsplash.com/photo-1541832676-9b763b0239ab?auto=format&fit=crop&w=200&q=80" class="item-img" alt="Coconut Jollof Rice">
                 <div class="item-info">
                     <h3>Coconut Jollof Rice</h3>
                     <p>Slow-simmered in coconut milk, served with grilled prawns</p>
@@ -546,30 +549,13 @@
                 </div>
                 <div class="item-action"></div>
             </div>
-
-            <div class="menu-item" data-name="Ofada Rice & Ayamase" data-price="8000">
-                <div class="item-info">
-                    <h3>Ofada Rice & Ayamase</h3>
-                    <p>Local ofada rice with green pepper sauce and assorted meat</p>
-                    <div class="item-price">₦8,000</div>
-                </div>
-                <div class="item-action"></div>
-            </div>
-
-            <div class="menu-item" data-name="Seafood Fried Rice" data-price="9500">
-                <div class="item-info">
-                    <h3>Seafood Fried Rice</h3>
-                    <p>Wok-tossed rice with prawns, calamari & mixed vegetables</p>
-                    <div class="item-price">₦9,500</div>
-                </div>
-                <div class="item-action"></div>
-            </div>
         </div>
 
         <div class="menu-section" id="proteins-sides">
-            <div class="section-title">Proteins & Sides</div>
+            <div class="section-title">Proteins &amp; Sides</div>
 
             <div class="menu-item" data-name="Peppered Turkey Wing" data-price="4500">
+                <img src="https://images.unsplash.com/photo-1527477396000-e27163b481c2?auto=format&fit=crop&w=200&q=80" class="item-img" alt="Peppered Turkey Wing">
                 <div class="item-info">
                     <h3>Peppered Turkey Wing</h3>
                     <p>Slow-roasted in house spicy pepper sauce</p>
@@ -579,37 +565,11 @@
             </div>
 
             <div class="menu-item" data-name="Suya Beef Skewers" data-price="5000">
+                <img src="https://images.unsplash.com/photo-1555939594-58d7cb561ad1?auto=format&fit=crop&w=200&q=80" class="item-img" alt="Suya Beef Skewers">
                 <div class="item-info">
                     <h3>Suya Beef Skewers</h3>
-                    <p>Char-grilled beef strips coated in yaji spice, onions & tomato</p>
+                    <p>Char-grilled beef strips coated in yaji spice</p>
                     <div class="item-price">₦5,000</div>
-                </div>
-                <div class="item-action"></div>
-            </div>
-
-            <div class="menu-item" data-name="Grilled Tilapia" data-price="6000">
-                <div class="item-info">
-                    <h3>Grilled Tilapia</h3>
-                    <p>Whole fish marinated in pepper sauce, grilled over open flame</p>
-                    <div class="item-price">₦6,000</div>
-                </div>
-                <div class="item-action"></div>
-            </div>
-
-            <div class="menu-item" data-name="Fried Plantain (Dodo)" data-price="1500">
-                <div class="item-info">
-                    <h3>Fried Plantain (Dodo)</h3>
-                    <p>Sweet ripe plantain, lightly caramelized</p>
-                    <div class="item-price">₦1,500</div>
-                </div>
-                <div class="item-action"></div>
-            </div>
-
-            <div class="menu-item" data-name="Moi Moi" data-price="1800">
-                <div class="item-info">
-                    <h3>Moi Moi</h3>
-                    <p>Steamed bean pudding with egg, fish flakes & peppers</p>
-                    <div class="item-price">₦1,800</div>
                 </div>
                 <div class="item-action"></div>
             </div>
@@ -619,40 +579,23 @@
             <div class="section-title">Executive Bowls</div>
 
             <div class="menu-item" data-name="Executive Protein Bowl" data-price="9000">
+                <img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&w=200&q=80" class="item-img" alt="Executive Protein Bowl">
                 <div class="item-info">
                     <h3>Executive Protein Bowl</h3>
-                    <p>Jollof rice, grilled chicken, plantain & coleslaw in one tray</p>
+                    <p>Jollof rice, grilled chicken, plantain &amp; coleslaw</p>
                     <div class="item-price">₦9,000</div>
-                </div>
-                <div class="item-action"></div>
-            </div>
-
-            <div class="menu-item" data-name="Surf & Turf Bowl" data-price="11000">
-                <div class="item-info">
-                    <h3>Surf & Turf Bowl</h3>
-                    <p>Grilled prawns, peppered beef, fried rice & side salad</p>
-                    <div class="item-price">₦11,000</div>
-                </div>
-                <div class="item-action"></div>
-            </div>
-
-            <div class="menu-item" data-name="Vegetarian Power Bowl" data-price="6500">
-                <div class="item-info">
-                    <h3>Vegetarian Power Bowl</h3>
-                    <p>Vegetable jollof, moi moi, dodo & sautéed greens</p>
-                    <div class="item-price">₦6,500</div>
                 </div>
                 <div class="item-action"></div>
             </div>
         </div>
 
-    </div>
+    </main>
 
     <!-- Cart bar -->
     <div class="cart-bar">
         <div class="cart-summary-row" id="cart-summary-row">
             <div>
-                <div style="font-size: 0.72rem; color: var(--text-muted); letter-spacing: 0.5px;">Selected Items: <span id="item-count">0</span></div>
+                <div style="font-size: 0.72rem; color: var(--text-muted); letter-spacing: 0.5px;">Items Selected: <span id="item-count">0</span></div>
                 <div style="font-weight: 600; font-size: 1.1rem; color: var(--accent-gold);">Total: ₦<span id="cart-total">0</span></div>
             </div>
             <button class="checkout-btn" id="checkout-btn" disabled>Order via WhatsApp</button>
@@ -662,10 +605,10 @@
         </div>
     </div>
 
-    <!-- Customer details modal -->
+    <!-- Modal overlay -->
     <div class="modal-overlay" id="modal-overlay">
         <div class="modal">
-            <h2>Your order details</h2>
+            <h2>Your Order Details</h2>
 
             <div class="order-type-toggle">
                 <button type="button" id="pickup-btn" class="active">Pickup</button>
@@ -673,234 +616,229 @@
             </div>
 
             <div class="form-group" id="group-name">
-                <label for="cust-name">Full name <span class="required-mark">*</span></label>
+                <label for="cust-name">Full Name *</label>
                 <input type="text" id="cust-name" placeholder="e.g. Amaka Obi">
                 <div class="error-text">Please enter your name.</div>
             </div>
 
             <div class="form-group" id="group-phone">
-                <label for="cust-phone">Phone number <span class="required-mark">*</span></label>
+                <label for="cust-phone">Phone Number *</label>
                 <input type="tel" id="cust-phone" placeholder="e.g. 0803 123 4567">
                 <div class="error-text">Please enter a valid phone number.</div>
             </div>
 
             <div class="form-group" id="group-address" style="display:none;">
-                <label for="cust-address">Delivery address <span class="required-mark">*</span></label>
+                <label for="cust-address">Delivery Address *</label>
                 <textarea id="cust-address" placeholder="Street, area, landmark"></textarea>
                 <div class="error-text">Please enter a delivery address.</div>
             </div>
 
             <div class="form-group">
                 <label for="cust-notes">Notes (optional)</label>
-                <textarea id="cust-notes" placeholder="Allergies, spice level, extra requests..."></textarea>
+                <textarea id="cust-notes" placeholder="Allergies, spice level, special requests..."></textarea>
             </div>
 
             <div class="modal-actions">
                 <button type="button" class="btn-cancel" id="modal-cancel">Cancel</button>
-                <button type="button" class="btn-send" id="modal-send">Send order</button>
+                <button type="button" class="btn-send" id="modal-send">Send Order</button>
             </div>
         </div>
     </div>
 
     <script>
-        let cart = []; // { name, price, qty }
-        let orderType = 'Pickup';
+        document.addEventListener('DOMContentLoaded', () => {
+            let cart = [];
+            let orderType = 'Pickup';
 
-        // ---- Category filtering ----
-        const categoryBtns = document.querySelectorAll('.category-btn');
-        categoryBtns.forEach(btn => {
-            btn.addEventListener('click', () => {
-                categoryBtns.forEach(b => b.classList.remove('active'));
-                btn.classList.add('active');
-                document.querySelectorAll('.menu-section').forEach(s => s.classList.remove('active'));
-                document.getElementById(btn.dataset.target).classList.add('active');
+            const categoryBtns = document.querySelectorAll('.category-btn');
+            categoryBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    categoryBtns.forEach(b => b.classList.remove('active'));
+                    btn.classList.add('active');
+                    document.querySelectorAll('.menu-section').forEach(s => s.classList.remove('active'));
+                    document.getElementById(btn.dataset.target).classList.add('active');
+                });
             });
-        });
 
-        // ---- Render add/qty controls per menu item ----
-        function renderItemControls() {
-            document.querySelectorAll('.menu-item').forEach(el => {
-                const name = el.dataset.name;
-                const price = Number(el.dataset.price);
-                const action = el.querySelector('.item-action');
-                const inCart = cart.find(i => i.name === name);
+            function renderItemControls() {
+                document.querySelectorAll('.menu-item').forEach(el => {
+                    const name = el.dataset.name;
+                    const price = Number(el.dataset.price);
+                    const action = el.querySelector('.item-action');
+                    const inCart = cart.find(i => i.name === name);
 
-                if (!inCart) {
                     action.innerHTML = '';
-                    const btn = document.createElement('button');
-                    btn.className = 'add-btn';
-                    btn.textContent = '+ Add';
-                    btn.addEventListener('click', () => changeQty(name, price, 1));
-                    action.appendChild(btn);
-                } else {
-                    action.innerHTML = '';
-                    const wrap = document.createElement('div');
-                    wrap.className = 'qty-control';
+                    if (!inCart) {
+                        const btn = document.createElement('button');
+                        btn.className = 'add-btn';
+                        btn.textContent = '+ Add';
+                        btn.addEventListener('click', () => changeQty(name, price, 1));
+                        action.appendChild(btn);
+                    } else {
+                        const wrap = document.createElement('div');
+                        wrap.className = 'qty-control';
 
-                    const minus = document.createElement('button');
-                    minus.textContent = '−';
-                    minus.addEventListener('click', () => changeQty(name, price, -1));
+                        const minus = document.createElement('button');
+                        minus.textContent = '−';
+                        minus.addEventListener('click', () => changeQty(name, price, -1));
 
-                    const qty = document.createElement('span');
-                    qty.textContent = inCart.qty;
+                        const qty = document.createElement('span');
+                        qty.textContent = inCart.qty;
 
-                    const plus = document.createElement('button');
-                    plus.textContent = '+';
-                    plus.addEventListener('click', () => changeQty(name, price, 1));
+                        const plus = document.createElement('button');
+                        plus.textContent = '+';
+                        plus.addEventListener('click', () => changeQty(name, price, 1));
 
-                    wrap.appendChild(minus);
-                    wrap.appendChild(qty);
-                    wrap.appendChild(plus);
-                    action.appendChild(wrap);
-                }
-            });
-        }
-
-        function changeQty(name, price, delta) {
-            const existing = cart.find(i => i.name === name);
-            if (existing) {
-                existing.qty += delta;
-                if (existing.qty <= 0) {
-                    cart = cart.filter(i => i.name !== name);
-                }
-            } else if (delta > 0) {
-                cart.push({ name, price, qty: 1 });
-            }
-            renderAll();
-        }
-
-        function removeLine(name) {
-            cart = cart.filter(i => i.name !== name);
-            renderAll();
-        }
-
-        function renderCartSummary() {
-            const totalItems = cart.reduce((sum, i) => sum + i.qty, 0);
-            const totalPrice = cart.reduce((sum, i) => sum + i.qty * i.price, 0);
-            document.getElementById('item-count').innerText = totalItems;
-            document.getElementById('cart-total').innerText = totalPrice.toLocaleString();
-            document.getElementById('checkout-btn').disabled = cart.length === 0;
-
-            const linesWrap = document.getElementById('cart-lines');
-            linesWrap.innerHTML = '';
-            if (cart.length === 0) {
-                linesWrap.innerHTML = '<div class="empty-state" style="padding:12px 20px;">Your cart is empty.</div>';
-            } else {
-                cart.forEach(item => {
-                    const line = document.createElement('div');
-                    line.className = 'cart-line';
-                    line.innerHTML = `
-                        <span>${item.qty} × ${item.name} — ₦${(item.qty * item.price).toLocaleString()}</span>
-                        <button class="remove-line" data-name="${item.name}">Remove</button>
-                    `;
-                    line.querySelector('.remove-line').addEventListener('click', () => removeLine(item.name));
-                    linesWrap.appendChild(line);
+                        wrap.appendChild(minus);
+                        wrap.appendChild(qty);
+                        wrap.appendChild(plus);
+                        action.appendChild(wrap);
+                    }
                 });
             }
-        }
 
-        function renderAll() {
-            renderItemControls();
-            renderCartSummary();
-        }
-
-        // Toggle cart details drawer
-        document.getElementById('cart-summary-row').addEventListener('click', (e) => {
-            if (e.target.id === 'checkout-btn') return;
-            document.getElementById('cart-details').classList.toggle('open');
-        });
-
-        // ---- Checkout modal ----
-        const overlay = document.getElementById('modal-overlay');
-        const pickupBtn = document.getElementById('pickup-btn');
-        const deliveryBtn = document.getElementById('delivery-btn');
-        const addressGroup = document.getElementById('group-address');
-
-        document.getElementById('checkout-btn').addEventListener('click', () => {
-            if (cart.length === 0) return;
-            overlay.classList.add('open');
-        });
-
-        document.getElementById('modal-cancel').addEventListener('click', () => {
-            overlay.classList.remove('open');
-        });
-
-        pickupBtn.addEventListener('click', () => {
-            orderType = 'Pickup';
-            pickupBtn.classList.add('active');
-            deliveryBtn.classList.remove('active');
-            addressGroup.style.display = 'none';
-        });
-
-        deliveryBtn.addEventListener('click', () => {
-            orderType = 'Delivery';
-            deliveryBtn.classList.add('active');
-            pickupBtn.classList.remove('active');
-            addressGroup.style.display = 'block';
-        });
-
-        function setInvalid(groupId, invalid) {
-            document.getElementById(groupId).classList.toggle('invalid', invalid);
-        }
-
-        document.getElementById('modal-send').addEventListener('click', () => {
-            const name = document.getElementById('cust-name').value.trim();
-            const phone = document.getElementById('cust-phone').value.trim();
-            const address = document.getElementById('cust-address').value.trim();
-            const notes = document.getElementById('cust-notes').value.trim();
-
-            const phoneValid = /^[0-9+()\s-]{7,}$/.test(phone);
-
-            let valid = true;
-            setInvalid('group-name', !name);
-            if (!name) valid = false;
-
-            setInvalid('group-phone', !phoneValid);
-            if (!phoneValid) valid = false;
-
-            if (orderType === 'Delivery') {
-                setInvalid('group-address', !address);
-                if (!address) valid = false;
-            } else {
-                setInvalid('group-address', false);
+            function changeQty(name, price, delta) {
+                const existing = cart.find(i => i.name === name);
+                if (existing) {
+                    existing.qty += delta;
+                    if (existing.qty <= 0) {
+                        cart = cart.filter(i => i.name !== name);
+                    }
+                } else if (delta > 0) {
+                    cart.push({ name, price, qty: 1 });
+                }
+                renderAll();
             }
 
-            if (!valid) return;
+            function removeLine(name) {
+                cart = cart.filter(i => i.name !== name);
+                renderAll();
+            }
 
-            sendWhatsAppOrder({ name, phone, address, notes });
-        });
+            function renderCartSummary() {
+                const totalItems = cart.reduce((sum, i) => sum + i.qty, 0);
+                const totalPrice = cart.reduce((sum, i) => sum + i.qty * i.price, 0);
+                document.getElementById('item-count').innerText = totalItems;
+                document.getElementById('cart-total').innerText = totalPrice.toLocaleString();
+                document.getElementById('checkout-btn').disabled = cart.length === 0;
 
-        function sendWhatsAppOrder({ name, phone, address, notes }) {
-            const restaurantWhatsApp = "2348182006644"; // Replace with actual restaurant number
+                const linesWrap = document.getElementById('cart-lines');
+                linesWrap.innerHTML = '';
+                if (cart.length === 0) {
+                    linesWrap.innerHTML = '<div style="padding:16px 20px; color: var(--text-muted); font-size: 0.85rem;">Your cart is empty.</div>';
+                } else {
+                    cart.forEach(item => {
+                        const line = document.createElement('div');
+                        line.className = 'cart-line';
+                        line.innerHTML = `
+                            <span>${item.qty} × ${item.name} — ₦${(item.qty * item.price).toLocaleString()}</span>
+                            <button class="remove-line" data-name="${item.name}">Remove</button>
+                        `;
+                        line.querySelector('.remove-line').addEventListener('click', () => removeLine(item.name));
+                        linesWrap.appendChild(line);
+                    });
+                }
+            }
 
-            const totalPrice = cart.reduce((sum, i) => sum + i.qty * i.price, 0);
+            function renderAll() {
+                renderItemControls();
+                renderCartSummary();
+            }
 
-            let lines = [];
-            lines.push('Hello Spice & Rice Bistro! I would like to place an order:');
-            lines.push('');
-            cart.forEach((item, index) => {
-                lines.push(`${index + 1}. ${item.name} x${item.qty} - ₦${(item.qty * item.price).toLocaleString()}`);
+            document.getElementById('cart-summary-row').addEventListener('click', (e) => {
+                if (e.target.id === 'checkout-btn') return;
+                document.getElementById('cart-details').classList.toggle('open');
             });
-            lines.push('');
-            lines.push(`Total: ₦${totalPrice.toLocaleString()}`);
-            lines.push('');
-            lines.push(`Name: ${name}`);
-            lines.push(`Phone: ${phone}`);
-            lines.push(`Order type: ${orderType}`);
-            if (orderType === 'Delivery') {
-                lines.push(`Delivery address: ${address}`);
+
+            const overlay = document.getElementById('modal-overlay');
+            const pickupBtn = document.getElementById('pickup-btn');
+            const deliveryBtn = document.getElementById('delivery-btn');
+            const addressGroup = document.getElementById('group-address');
+
+            document.getElementById('checkout-btn').addEventListener('click', () => {
+                if (cart.length === 0) return;
+                overlay.classList.add('open');
+            });
+
+            document.getElementById('modal-cancel').addEventListener('click', () => {
+                overlay.classList.remove('open');
+            });
+
+            pickupBtn.addEventListener('click', () => {
+                orderType = 'Pickup';
+                pickupBtn.classList.add('active');
+                deliveryBtn.classList.remove('active');
+                addressGroup.style.display = 'none';
+            });
+
+            deliveryBtn.addEventListener('click', () => {
+                orderType = 'Delivery';
+                deliveryBtn.classList.add('active');
+                pickupBtn.classList.remove('active');
+                addressGroup.style.display = 'block';
+            });
+
+            function setInvalid(groupId, invalid) {
+                document.getElementById(groupId).classList.toggle('invalid', invalid);
             }
-            if (notes) {
-                lines.push(`Notes: ${notes}`);
+
+            document.getElementById('modal-send').addEventListener('click', () => {
+                const name = document.getElementById('cust-name').value.trim();
+                const phone = document.getElementById('cust-phone').value.trim();
+                const address = document.getElementById('cust-address').value.trim();
+                const notes = document.getElementById('cust-notes').value.trim();
+
+                const phoneValid = /^[0-9+()\s-]{7,}$/.test(phone);
+
+                let valid = true;
+                setInvalid('group-name', !name);
+                if (!name) valid = false;
+
+                setInvalid('group-phone', !phoneValid);
+                if (!phoneValid) valid = false;
+
+                if (orderType === 'Delivery') {
+                    setInvalid('group-address', !address);
+                    if (!address) valid = false;
+                } else {
+                    setInvalid('group-address', false);
+                }
+
+                if (!valid) return;
+
+                sendWhatsAppOrder({ name, phone, address, notes });
+            });
+
+            function sendWhatsAppOrder({ name, phone, address, notes }) {
+                const restaurantWhatsApp = "2348182006644";
+                const totalPrice = cart.reduce((sum, i) => sum + i.qty * i.price, 0);
+
+                let lines = [];
+                lines.push('Hello Spice & Rice Bistro! I would like to place an order:');
+                lines.push('');
+                cart.forEach((item, index) => {
+                    lines.push(`${index + 1}. ${item.name} x${item.qty} - ₦${(item.qty * item.price).toLocaleString()}`);
+                });
+                lines.push('');
+                lines.push(`Total: ₦${totalPrice.toLocaleString()}`);
+                lines.push('');
+                lines.push(`Name: ${name}`);
+                lines.push(`Phone: ${phone}`);
+                lines.push(`Order type: ${orderType}`);
+                if (orderType === 'Delivery') {
+                    lines.push(`Delivery address: ${address}`);
+                }
+                if (notes) {
+                    lines.push(`Notes: ${notes}`);
+                }
+
+                const message = encodeURIComponent(lines.join('\n'));
+                window.open(`https://wa.me/${restaurantWhatsApp}?text=${message}`, '_blank');
+                overlay.classList.remove('open');
             }
 
-            const message = encodeURIComponent(lines.join('\n'));
-            window.open(`https://wa.me/${restaurantWhatsApp}?text=${message}`, '_blank');
-
-            overlay.classList.remove('open');
-        }
-
-        renderAll();
+            renderAll();
+        });
     </script>
 </body>
 </html>
