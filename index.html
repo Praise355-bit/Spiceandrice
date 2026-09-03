@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -35,6 +34,1182 @@
         }
 
         * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Poppins', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            background-image:
+                radial-gradient(circle at 15% 10%, rgba(212,175,55,0.06), transparent 45%),
+                radial-gradient(circle at 85% 20%, rgba(212,175,55,0.04), transparent 40%);
+            color: var(--text-main);
+            padding-bottom: 140px;
+        }
+
+        header {
+            background: linear-gradient(180deg, rgba(13,11,9,0.5) 0%, var(--bg-color) 100%), 
+                        url('https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&w=1000&q=80') center/cover;
+            padding: 64px 20px 36px;
+            text-align: center;
+            border-bottom: 1px solid var(--border);
+            position: relative;
+        }
+
+        header h1 {
+            font-family: 'Cinzel', serif;
+            color: var(--accent-gold);
+            background: linear-gradient(180deg, var(--accent-gold-soft), var(--accent-gold));
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-weight: 700;
+            font-size: 2.2rem;
+            letter-spacing: 2px;
+            margin-bottom: 12px;
+        }
+
+        header .divider {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            margin: 0 auto 14px;
+        }
+
+        header .divider::before,
+        header .divider::after {
+            content: '';
+            width: 40px;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--accent-gold));
+        }
+
+        header .divider::after {
+            background: linear-gradient(90deg, var(--accent-gold), transparent);
+        }
+
+        header .divider span {
+            width: 6px;
+            height: 6px;
+            background: var(--accent-gold);
+            transform: rotate(45deg);
+        }
+
+        header p {
+            color: var(--text-muted);
+            font-size: 0.8rem;
+            font-weight: 400;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        /* Sticky Nav */
+        .category-nav {
+            display: flex;
+            gap: 10px;
+            overflow-x: auto;
+            padding: 14px 20px;
+            position: sticky;
+            top: 0;
+            background: rgba(13, 11, 9, 0.85);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            z-index: 10;
+            border-bottom: 1px solid var(--border);
+            scrollbar-width: none;
+        }
+
+        .category-nav::-webkit-scrollbar {
+            display: none;
+        }
+
+        .category-btn {
+            background: var(--card-bg);
+            color: var(--text-muted);
+            border: 1px solid var(--border);
+            padding: 10px 20px;
+            border-radius: 30px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            letter-spacing: 0.5px;
+            white-space: nowrap;
+            cursor: pointer;
+            transition: all 0.25s ease;
+        }
+
+        .category-btn.active {
+            background: linear-gradient(135deg, var(--accent-gold-soft), var(--accent-gold));
+            color: #0d0b09;
+            font-weight: 600;
+            border-color: var(--accent-gold);
+            box-shadow: 0 4px 16px rgba(212,175,55,0.25);
+        }
+
+        /* Menu Container */
+        .menu-container {
+            padding: 20px;
+            max-width: 680px;
+            margin: 0 auto;
+        }
+
+        .menu-section {
+            display: none;
+        }
+
+        .menu-section.active {
+            display: block;
+        }
+
+        .section-title {
+            font-family: 'Cinzel', serif;
+            color: var(--accent-gold);
+            font-size: 1.05rem;
+            font-weight: 600;
+            margin: 24px 0 16px;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .section-title::before {
+            content: '';
+            width: 6px;
+            height: 6px;
+            background: var(--accent-gold);
+            transform: rotate(45deg);
+            flex-shrink: 0;
+        }
+
+        .section-title::after {
+            content: '';
+            flex: 1;
+            height: 1px;
+            background: linear-gradient(90deg, var(--border), transparent);
+        }
+
+        .menu-item {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-left: 3px solid var(--accent-gold);
+            border-radius: 8px;
+            padding: 14px;
+            margin-bottom: 14px;
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.4);
+            transition: transform 0.25s ease, border-color 0.25s ease;
+        }
+
+        .menu-item:hover {
+            transform: translateY(-2px);
+            border-color: var(--accent-gold);
+        }
+
+        .item-img {
+            width: 80px;
+            height: 80px;
+            border-radius: 6px;
+            object-fit: cover;
+            flex-shrink: 0;
+            border: 1px solid var(--border);
+        }
+
+        .item-info {
+            flex: 1;
+        }
+
+        .item-info h3 {
+            font-size: 0.98rem;
+            font-weight: 600;
+            margin-bottom: 4px;
+            color: var(--text-main);
+        }
+
+        .item-info p {
+            color: var(--text-muted);
+            font-size: 0.78rem;
+            font-weight: 300;
+            margin-bottom: 8px;
+            line-height: 1.35;
+        }
+
+        .item-price {
+            display: inline-block;
+            color: var(--accent-gold);
+            font-weight: 600;
+            font-size: 0.85rem;
+            letter-spacing: 0.5px;
+        }
+
+        .add-btn {
+            background: transparent;
+            border: 1px solid var(--accent-gold);
+            color: var(--accent-gold);
+            padding: 8px 16px;
+            border-radius: 6px;
+            font-weight: 500;
+            font-size: 0.8rem;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            flex-shrink: 0;
+        }
+
+        .add-btn:hover {
+            background: linear-gradient(135deg, var(--accent-gold-soft), var(--accent-gold));
+            color: #0d0b09;
+        }
+
+        .qty-control {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            background: var(--bg-color);
+            padding: 4px 8px;
+            border-radius: 6px;
+            border: 1px solid var(--border);
+        }
+
+        .qty-control button {
+            width: 26px;
+            height: 26px;
+            border-radius: 4px;
+            border: none;
+            background: var(--card-bg);
+            color: var(--accent-gold);
+            font-size: 1rem;
+            font-weight: bold;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .qty-control span {
+            min-width: 20px;
+            text-align: center;
+            font-weight: 600;
+            font-size: 0.85rem;
+        }
+
+        /* Fixed Cart Bar */
+        .cart-bar {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(22, 19, 17, 0.95);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-top: 1px solid var(--accent-gold);
+            max-width: 680px;
+            margin: 0 auto;
+            z-index: 20;
+            box-shadow: 0 -10px 30px rgba(0,0,0,0.7);
+        }
+
+        .cart-summary-row {
+            padding: 14px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+        }
+
+        .checkout-btn {
+            background: linear-gradient(135deg, var(--accent-gold-soft), var(--accent-gold));
+            color: #0d0b09;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 6px;
+            font-weight: 600;
+            font-size: 0.85rem;
+            letter-spacing: 0.5px;
+            cursor: pointer;
+            transition: opacity 0.2s;
+        }
+
+        .checkout-btn:disabled {
+            opacity: 0.4;
+            cursor: not-allowed;
+        }
+
+        .cart-details {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-in-out;
+            border-top: 1px solid var(--border);
+            background: var(--bg-color);
+        }
+
+        .cart-details.open {
+            max-height: 260px;
+            overflow-y: auto;
+        }
+
+        .cart-line {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px 20px;
+            border-bottom: 1px solid var(--border);
+            font-size: 0.85rem;
+        }
+
+        .cart-line .remove-line {
+            color: var(--danger);
+            background: none;
+            border: none;
+            font-size: 0.8rem;
+            cursor: pointer;
+        }
+
+        /* Modal Overlay */
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(0,0,0,0.8);
+            backdrop-filter: blur(6px);
+            -webkit-backdrop-filter: blur(6px);
+            z-index: 50;
+            align-items: flex-end;
+            justify-content: center;
+        }
+
+        .modal-overlay.open {
+            display: flex;
+        }
+
+        .modal {
+            background: var(--card-bg);
+            width: 100%;
+            max-width: 680px;
+            border-radius: 16px 16px 0 0;
+            border-top: 1px solid var(--accent-gold);
+            padding: 24px 20px;
+            max-height: 85vh;
+            overflow-y: auto;
+        }
+
+        .modal h2 {
+            font-family: 'Cinzel', serif;
+            color: var(--accent-gold);
+            font-weight: 600;
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+        }
+
+        .form-group {
+            margin-bottom: 16px;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            margin-bottom: 6px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            background: var(--bg-color);
+            border: 1px solid var(--border);
+            color: var(--text-main);
+            padding: 12px 14px;
+            border-radius: 6px;
+            font-size: 0.9rem;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--accent-gold);
+        }
+
+        .error-text {
+            color: var(--danger);
+            font-size: 0.75rem;
+            margin-top: 4px;
+            display: none;
+        }
+
+        .form-group.invalid input,
+        .form-group.invalid textarea {
+            border-color: var(--danger);
+        }
+
+        .form-group.invalid .error-text {
+            display: block;
+        }
+
+        .order-type-toggle {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 18px;
+        }
+
+        .order-type-toggle button {
+            flex: 1;
+            padding: 12px;
+            border-radius: 6px;
+            border: 1px solid var(--border);
+            background: var(--bg-color);
+            color: var(--text-main);
+            cursor: pointer;
+            font-size: 0.85rem;
+            transition: all 0.2s;
+        }
+
+        .order-type-toggle button.active {
+            background: linear-gradient(135deg, var(--accent-gold-soft), var(--accent-gold));
+            color: #0d0b09;
+            border-color: var(--accent-gold);
+            font-weight: 600;
+        }
+
+        .modal-actions {
+            display: flex;
+            gap: 10px;
+            margin-top: 12px;
+        }
+
+        .modal-actions button {
+            flex: 1;
+            padding: 14px;
+            border-radius: 6px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            cursor: pointer;
+            border: none;
+        }
+
+        .btn-cancel {
+            background: transparent;
+            border: 1px solid var(--border) !important;
+            color: var(--text-muted);
+        }
+
+        .btn-send {
+            background: var(--whatsapp-green);
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Install PWA Floating Prompt Banner -->
+    <div id="pwa-install-banner" style="display: none; position: fixed; top: 12px; left: 12px; right: 12px; max-width: 656px; margin: 0 auto; background: rgba(22, 19, 17, 0.95); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border: 1px solid var(--accent-gold); border-radius: 12px; padding: 12px 16px; z-index: 100; box-shadow: 0 8px 24px rgba(0,0,0,0.6); align-items: center; justify-content: space-between;">
+        <div style="display: flex; align-items: center; gap: 12px;">
+            <img src="https://images.unsplash.com/photo-1604329760661-e71dc83f8f26?auto=format&fit=crop&w=100&h=100" style="width: 40px; height: 40px; border-radius: 8px; object-fit: cover; border: 1px solid var(--accent-gold);" alt="App Icon">
+            <div>
+                <div style="font-size: 0.85rem; font-weight: 600; color: var(--text-main);">Spice &amp; Rice App</div>
+                <div style="font-size: 0.72rem; color: var(--text-muted);">Install for faster ordering</div>
+            </div>
+        </div>
+        <div style="display: flex; gap: 8px; align-items: center;">
+            <button id="pwa-install-btn" style="background: linear-gradient(135deg, var(--accent-gold-soft), var(--accent-gold)); color: #0d0b09; border: none; padding: 6px 14px; border-radius: 6px; font-weight: 600; font-size: 0.78rem; cursor: pointer;">Install</button>
+            <button id="pwa-close-btn" style="background: transparent; color: var(--text-muted); border: none; font-size: 1.1rem; cursor: pointer; padding: 0 4px;">&times;</button>
+        </div>
+    </div>
+
+    <!-- Step-by-Step Installation Modal -->
+    <div id="pwa-guide-modal" class="modal-overlay">
+        <div class="modal" style="text-align: center;">
+            <h2>Install Spice &amp; Rice App</h2>
+            
+            <!-- Steps for iOS -->
+            <div id="ios-steps" style="display: none; text-align: left; margin: 16px 0;">
+                <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 12px;">Follow these simple steps on Safari:</p>
+                <ol style="color: var(--text-main); font-size: 0.85rem; padding-left: 20px; line-height: 1.8;">
+                    <li>Tap the <strong>Share button</strong> <span style="font-size: 1.1rem;">⎋</span> at the bottom of Safari.</li>
+                    <li>Scroll down and tap <strong>"Add to Home Screen"</strong> <span style="font-size: 1.1rem;">➕</span>.</li>
+                    <li>Tap <strong>"Add"</strong> in the top right corner.</li>
+                </ol>
+            </div>
+
+            <!-- Steps for Android / Desktop -->
+            <div id="android-steps" style="display: none; text-align: left; margin: 16px 0;">
+                <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 12px;">Follow these steps in your browser:</p>
+                <ol style="color: var(--text-main); font-size: 0.85rem; padding-left: 20px; line-height: 1.8;">
+                    <li>Tap the <strong>Menu icon</strong> (3 dots) in the top right corner.</li>
+                    <li>Select <strong>"Add to Home screen"</strong> or <strong>"Install app"</strong>.</li>
+                    <li>Confirm by tapping <strong>"Install"</strong>.</li>
+                </ol>
+            </div>
+
+            <button id="close-guide-btn" style="background: var(--border); color: var(--text-main); border: 1px solid var(--border); padding: 10px 24px; border-radius: 6px; font-weight: 500; font-size: 0.85rem; cursor: pointer; width: 100%; margin-top: 12px;">Got it</button>
+        </div>
+    </div>
+
+    <header>
+        <h1>Spice &amp; Rice Bistro</h1>
+        <div class="divider"><span></span></div>
+        <p>Maitama Executive Lunch &amp; Express Orders</p>
+    </header>
+
+    <nav class="category-nav">
+        <button class="category-btn active" data-target="signature-rice">Signature Rice</button>
+        <button class="category-btn" data-target="executive-bowls">Executive Bowls</button>
+        <button class="category-btn" data-target="soup-swallow">Soup &amp; Swallow</button>
+        <button class="category-btn" data-target="proteins-sides">Grills &amp; Sides</button>
+        <button class="category-btn" data-target="signature-drinks">Beverages</button>
+        <button class="category-btn" data-target="desserts-extras">Desserts &amp; Extras</button>
+    </nav>
+
+    <main class="menu-container">
+
+        <!-- Signature Rice Section -->
+        <div class="menu-section active" id="signature-rice">
+            <div class="section-title">Signature Rice Dishes</div>
+
+            <div class="menu-item" data-name="Smokey Party Jollof" data-price="6500">
+                <img src="https://images.unsplash.com/photo-1604329760661-e71dc83f8f26?auto=format&fit=crop&w=200&q=80" class="item-img" alt="Smokey Party Jollof">
+                <div class="item-info">
+                    <h3>Smokey Party Jollof</h3>
+                    <p>Served with peppered chicken &amp; fried plantain</p>
+                    <div class="item-price">₦6,500</div>
+                </div>
+                <div class="item-action"></div>
+            </div>
+
+            <div class="menu-item" data-name="Asun Fried Rice" data-price="8500">
+                <img src="https://images.unsplash.com/photo-1603133872878-684f208fb84b?auto=format&fit=crop&w=200&q=80" class="item-img" alt="Asun Fried Rice">
+                <div class="item-info">
+                    <h3>Asun Fried Rice</h3>
+                    <p>Spicy stir-fry vegetable rice with boneless goat meat</p>
+                    <div class="item-price">₦8,500</div>
+                </div>
+                <div class="item-action"></div>
+            </div>
+
+            <div class="menu-item" data-name="Native Palm Oil Rice" data-price="7000">
+                <img src="https://images.unsplash.com/photo-1543339308-43e59d6b73a6?auto=format&fit=crop&w=200&q=80" class="item-img" alt="Native Palm Oil Rice">
+                <div class="item-info">
+                    <h3>Native Palm Oil Rice</h3>
+                    <p>Cooked with smoked mackerel, dried fish &amp; local spices</p>
+                    <div class="item-price">₦7,000</div>
+                </div>
+                <div class="item-action"></div>
+            </div>
+
+            <div class="menu-item" data-name="Coconut Jollof Rice" data-price="7500">
+                <img src="https://images.unsplash.com/photo-1541832676-9b763b0239ab?auto=format&fit=crop&w=200&q=80" class="item-img" alt="Coconut Jollof Rice">
+                <div class="item-info">
+                    <h3>Coconut Jollof Rice</h3>
+                    <p>Slow-simmered in coconut milk, served with grilled prawns</p>
+                    <div class="item-price">₦7,500</div>
+                </div>
+                <div class="item-action"></div>
+            </div>
+
+            <div class="menu-item" data-name="Ofada Rice & Ayamase" data-price="8000">
+                <img src="https://images.unsplash.com/photo-1512058564366-18510be2db19?auto=format&fit=crop&w=200&q=80" class="item-img" alt="Ofada Rice">
+                <div class="item-info">
+                    <h3>Ofada Rice &amp; Ayamase</h3>
+                    <p>Local unpolished rice with spicy green pepper sauce &amp; boiled egg</p>
+                    <div class="item-price">₦8,000</div>
+                </div>
+                <div class="item-action"></div>
+            </div>
+
+            <div class="menu-item" data-name="Seafood Fried Rice" data-price="9500">
+                <img src="https://images.unsplash.com/photo-1534422298391-e4f8c172dddb?auto=format&fit=crop&w=200&q=80" class="item-img" alt="Seafood Fried Rice">
+                <div class="item-info">
+                    <h3>Seafood Fried Rice</h3>
+                    <p>Wok-tossed rice with jumbo prawns, calamari &amp; sweet corn</p>
+                    <div class="item-price">₦9,500</div>
+                </div>
+                <div class="item-action"></div>
+            </div>
+        </div>
+
+        <!-- Executive Bowls Section -->
+        <div class="menu-section" id="executive-bowls">
+            <div class="section-title">Executive Bowls</div>
+
+            <div class="menu-item" data-name="Executive Protein Bowl" data-price="9000">
+                <img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&w=200&q=80" class="item-img" alt="Executive Bowl">
+                <div class="item-info">
+                    <h3>Executive Protein Bowl</h3>
+                    <p>Jollof rice, grilled chicken, plantain &amp; coleslaw tray</p>
+                    <div class="item-price">₦9,000</div>
+                </div>
+                <div class="item-action"></div>
+            </div>
+
+            <div class="menu-item" data-name="Surf & Turf Bowl" data-price="11000">
+                <img src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?auto=format&fit=crop&w=200&q=80" class="item-img" alt="Surf & Turf Bowl">
+                <div class="item-info">
+                    <h3>Surf &amp; Turf Bowl</h3>
+                    <p>Grilled tiger prawns, peppered beef, spicy fried rice &amp; salad</p>
+                    <div class="item-price">₦11,000</div>
+                </div>
+                <div class="item-action"></div>
+            </div>
+
+            <div class="menu-item" data-name="Vegetarian Power Bowl" data-price="6500">
+                <img src="https://images.unsplash.com/photo-1540420773420-3366772f4999?auto=format&fit=crop&w=200&q=80" class="item-img" alt="Vegetarian Bowl">
+                <div class="item-info">
+                    <h3>Vegetarian Power Bowl</h3>
+                    <p>Vegetable jollof, steamed moi moi, dodo &amp; sautéed spinach</p>
+                    <div class="item-price">₦6,500</div>
+                </div>
+                <div class="item-action"></div>
+            </div>
+
+            <div class="menu-item" data-name="Suya Grill Feast Bowl" data-price="10500">
+                <img src="https://images.unsplash.com/photo-1529193591184-b1d58069ecdd?auto=format&fit=crop&w=200&q=80" class="item-img" alt="Suya Grill Bowl">
+                <div class="item-info">
+                    <h3>Suya Grill Feast Bowl</h3>
+                    <p>Beef suya, chicken kebab, smoked rice &amp; spicy chili jam</p>
+                    <div class="item-price">₦10,500</div>
+                </div>
+                <div class="item-action"></div>
+            </div>
+        </div>
+
+        <!-- Soup & Swallow Section -->
+        <div class="menu-section" id="soup-swallow">
+            <div class="section-title">Soups &amp; Traditional Swallow</div>
+
+            <div class="menu-item" data-name="Pounded Yam & Egusi" data-price="8500">
+                <img src="https://images.unsplash.com/photo-1547496592-1b9d4ee69254?auto=format&fit=crop&w=200&q=80" class="item-img" alt="Egusi Soup">
+                <div class="item-info">
+                    <h3>Pounded Yam &amp; Egusi</h3>
+                    <p>Rich melon soup cooked with stockfish, beef &amp; fresh spinach</p>
+                    <div class="item-price">₦8,500</div>
+                </div>
+                <div class="item-action"></div>
+            </div>
+
+            <div class="menu-item" data-name="Seafood Okra & Amala" data-price="10500">
+                <img src="https://images.unsplash.com/photo-1512058564366-18510be2db19?auto=format&fit=crop&w=200&q=80" class="item-img" alt="Seafood Okra">
+                <div class="item-info">
+                    <h3>Seafood Okra &amp; Amala</h3>
+                    <p>Fresh okra soup loaded with crab, prawns, snail &amp; fish</p>
+                    <div class="item-price">₦10,500</div>
+                </div>
+                <div class="item-action"></div>
+            </div>
+
+            <div class="menu-item" data-name="Efo Riro & Wheat" data-price="8000">
+                <img src="https://images.unsplash.com/photo-1546833999-b9f581a1996d?auto=format&fit=crop&w=200&q=80" class="item-img" alt="Efo Riro">
+                <div class="item-info">
+                    <h3>Efo Riro &amp; Wheat Meal</h3>
+                    <p>Rich vegetable stew with assorted meat, locust beans &amp; ponmo</p>
+                    <div class="item-price">₦8,000</div>
+                </div>
+                <div class="item-action"></div>
+            </div>
+
+            <div class="menu-item" data-name="Goat Meat Pepper Soup" data-price="6000">
+                <img src="https://images.unsplash.com/photo-1547592166-23ac45744acd?auto=format&fit=crop&w=200&q=80" class="item-img" alt="Goat Meat Pepper Soup">
+                <div class="item-info">
+                    <h3>Goat Meat Pepper Soup</h3>
+                    <p>Spicy broth infused with native herbs &amp; tender goat meat</p>
+                    <div class="item-price">₦6,000</div>
+                </div>
+                <div class="item-action"></div>
+            </div>
+        </div>
+
+        <!-- Proteins & Sides Section -->
+        <div class="menu-section" id="proteins-sides">
+            <div class="section-title">Grills &amp; Side Dishes</div>
+
+            <div class="menu-item" data-name="Peppered Turkey Wing" data-price="4500">
+                <img src="https://images.unsplash.com/photo-1527477396000-e27163b481c2?auto=format&fit=crop&w=200&q=80" class="item-img" alt="Peppered Turkey Wing">
+                <div class="item-info">
+                    <h3>Peppered Turkey Wing</h3>
+                    <p>Slow-roasted in house spicy pepper sauce</p>
+                    <div class="item-price">₦4,500</div>
+                </div>
+                <div class="item-action"></div>
+            </div>
+
+            <div class="menu-item" data-name="Suya Beef Skewers" data-price="5000">
+                <img src="https://images.unsplash.com/photo-1555939594-58d7cb561ad1?auto=format&fit=crop&w=200&q=80" class="item-img" alt="Suya Beef Skewers">
+                <div class="item-info">
+                    <h3>Suya Beef Skewers</h3>
+                    <p>Char-grilled beef strips coated in yaji spice</p>
+                    <div class="item-price">₦5,000</div>
+                </div>
+                <div class="item-action"></div>
+            </div>
+
+            <div class="menu-item" data-name="Grilled Whole Tilapia" data-price="7500">
+                <img src="https://images.unsplash.com/photo-1519708227418-c8fd9a32b7a2?auto=format&fit=crop&w=200&q=80" class="item-img" alt="Grilled Tilapia">
+                <div class="item-info">
+                    <h3>Grilled Whole Tilapia</h3>
+                    <p>Flame-grilled fish garnished with spicy tomato &amp; onion sauce</p>
+                    <div class="item-price">₦7,500</div>
+                </div>
+                <div class="item-action"></div>
+            </div>
+
+            <div class="menu-item" data-name="Fried Plantain (Dodo)" data-price="1500">
+                <img src="https://images.unsplash.com/photo-1628102491629-778571d893a3?auto=format&fit=crop&w=200&q=80" class="item-img" alt="Fried Plantain">
+                <div class="item-info">
+                    <h3>Fried Plantain (Dodo)</h3>
+                    <p>Sweet ripe plantain slices, fried golden brown</p>
+                    <div class="item-price">₦1,500</div>
+                </div>
+                <div class="item-action"></div>
+            </div>
+
+            <div class="menu-item" data-name="Special Egg Moi Moi" data-price="2000">
+                <img src="https://images.unsplash.com/photo-1546833999-b9f581a1996d?auto=format&fit=crop&w=200&q=80" class="item-img" alt="Moi Moi">
+                <div class="item-info">
+                    <h3>Special Egg Moi Moi</h3>
+                    <p>Steamed bean pudding with hard-boiled egg &amp; fish flakes</p>
+                    <div class="item-price">₦2,000</div>
+                </div>
+                <div class="item-action"></div>
+            </div>
+
+            <div class="menu-item" data-name="Crispy Chicken Wings (6pcs)" data-price="4000">
+                <img src="https://images.unsplash.com/photo-1567620832903-9fc6debc209f?auto=format&fit=crop&w=200&q=80" class="item-img" alt="Crispy Chicken Wings">
+                <div class="item-info">
+                    <h3>Crispy Chicken Wings (6pcs)</h3>
+                    <p>Deep-fried spicy wings tossed in sweet honey glaze</p>
+                    <div class="item-price">₦4,000</div>
+                </div>
+                <div class="item-action"></div>
+            </div>
+        </div>
+
+        <!-- Beverages Section -->
+        <div class="menu-section" id="signature-drinks">
+            <div class="section-title">Signature Beverages</div>
+
+            <div class="menu-item" data-name="Chilled Zobo Mocktail" data-price="2000">
+                <img src="https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?auto=format&fit=crop&w=200&q=80" class="item-img" alt="Zobo Drink">
+                <div class="item-info">
+                    <h3>Chilled Zobo Mocktail</h3>
+                    <p>Hibiscus tea infused with pineapple, ginger &amp; mint leaves</p>
+                    <div class="item-price">₦2,000</div>
+                </div>
+                <div class="item-action"></div>
+            </div>
+
+            <div class="menu-item" data-name="Fresh Watermelon Juice" data-price="2500">
+                <img src="https://images.unsplash.com/photo-1589733955941-5eeaf752f6dd?auto=format&fit=crop&w=200&q=80" class="item-img" alt="Watermelon Juice">
+                <div class="item-info">
+                    <h3>Fresh Watermelon Juice</h3>
+                    <p>100% natural cold-pressed fresh fruit juice</p>
+                    <div class="item-price">₦2,500</div>
+                </div>
+                <div class="item-action"></div>
+            </div>
+
+            <div class="menu-item" data-name="Iced Tiger Nut Drink (Kunu Aya)" data-price="2500">
+                <img src="https://images.unsplash.com/photo-1556881286-fc6915169721?auto=format&fit=crop&w=200&q=80" class="item-img" alt="Tiger Nut Drink">
+                <div class="item-info">
+                    <h3>Iced Tiger Nut Drink</h3>
+                    <p>Creamy tiger nut blend with dates &amp; subtle coconut twist</p>
+                    <div class="item-price">₦2,500</div>
+                </div>
+                <div class="item-action"></div>
+            </div>
+
+            <div class="menu-item" data-name="Chapman Cocktail" data-price="3000">
+                <img src="https://images.unsplash.com/photo-1551024709-8f23befc6f87?auto=format&fit=crop&w=200&q=80" class="item-img" alt="Chapman Cocktail">
+                <div class="item-info">
+                    <h3>Chapman Cocktail</h3>
+                    <p>Classic Nigerian refreshing drink with bitters &amp; fresh cucumber</p>
+                    <div class="item-price">₦3,000</div>
+                </div>
+                <div class="item-action"></div>
+            </div>
+        </div>
+
+        <!-- Desserts & Extras Section -->
+        <div class="menu-section" id="desserts-extras">
+            <div class="section-title">Desserts &amp; Extras</div>
+
+            <div class="menu-item" data-name="Puff Puff Platter (8pcs)" data-price="1500">
+                <img src="https://images.unsplash.com/photo-1528605248644-14dd04022da1?auto=format&fit=crop&w=200&q=80" class="item-img" alt="Puff Puff">
+                <div class="item-info">
+                    <h3>Puff Puff Platter (8pcs)</h3>
+                    <p>Warm sweet dough balls dusted with cinnamon sugar</p>
+                    <div class="item-price">₦1,500</div>
+                </div>
+                <div class="item-action"></div>
+            </div>
+
+            <div class="menu-item" data-name="Creamy Coleslaw Extra" data-price="1000">
+                <img src="https://images.unsplash.com/photo-1625938145744-e380515399b7?auto=format&fit=crop&w=200&q=80" class="item-img" alt="Coleslaw">
+                <div class="item-info">
+                    <h3>Creamy Coleslaw Extra</h3>
+                    <p>Shredded cabbage and carrots tossed in rich mayonnaise</p>
+                    <div class="item-price">₦1,000</div>
+                </div>
+                <div class="item-action"></div>
+            </div>
+
+            <div class="menu-item" data-name="Extra Grilled Chicken Quarter" data-price="3000">
+                <img src="https://images.unsplash.com/photo-1598515214211-89d3c73ae83b?auto=format&fit=crop&w=200&q=80" class="item-img" alt="Grilled Chicken">
+                <div class="item-info">
+                    <h3>Extra Grilled Chicken Quarter</h3>
+                    <p>Flame-broiled chicken thigh &amp; drumstick option</p>
+                    <div class="item-price">₦3,000</div>
+                </div>
+                <div class="item-action"></div>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- Fixed Cart Bar -->
+    <div class="cart-bar">
+        <div class="cart-summary-row" id="cart-summary-row">
+            <div>
+                <div style="font-size: 0.72rem; color: var(--text-muted); letter-spacing: 0.5px;">Items Selected: <span id="item-count">0</span></div>
+                <div style="font-weight: 600; font-size: 1.1rem; color: var(--accent-gold);">Total: ₦<span id="cart-total">0</span></div>
+            </div>
+            <button class="checkout-btn" id="checkout-btn" disabled>Order via WhatsApp</button>
+        </div>
+        <div class="cart-details" id="cart-details">
+            <div id="cart-lines"></div>
+        </div>
+    </div>
+
+    <!-- Order Details Modal -->
+    <div class="modal-overlay" id="modal-overlay">
+        <div class="modal">
+            <h2>Your Order Details</h2>
+
+            <div class="order-type-toggle">
+                <button type="button" id="pickup-btn" class="active">Pickup</button>
+                <button type="button" id="delivery-btn">Delivery</button>
+            </div>
+
+            <div class="form-group" id="group-name">
+                <label for="cust-name">Full Name *</label>
+                <input type="text" id="cust-name" placeholder="e.g. Amaka Obi">
+                <div class="error-text">Please enter your name.</div>
+            </div>
+
+            <div class="form-group" id="group-phone">
+                <label for="cust-phone">Phone Number *</label>
+                <input type="tel" id="cust-phone" placeholder="e.g. 0803 123 4567">
+                <div class="error-text">Please enter a valid phone number.</div>
+            </div>
+
+            <div class="form-group" id="group-address" style="display:none;">
+                <label for="cust-address">Delivery Address *</label>
+                <textarea id="cust-address" placeholder="Street, area, landmark"></textarea>
+                <div class="error-text">Please enter a delivery address.</div>
+            </div>
+
+            <div class="form-group">
+                <label for="cust-notes">Notes (optional)</label>
+                <textarea id="cust-notes" placeholder="Allergies, spice level, special requests..."></textarea>
+            </div>
+
+            <div class="modal-actions">
+                <button type="button" class="btn-cancel" id="modal-cancel">Cancel</button>
+                <button type="button" class="btn-send" id="modal-send">Send Order</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Register Service Worker for PWA
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('./sw.js')
+                    .then(reg => console.log('PWA Service Worker registered'))
+                    .catch(err => console.log('Service Worker registration failed:', err));
+            });
+        }
+
+        // Guaranteed Banner & Guide Modal Logic
+        let deferredPrompt;
+        const banner = document.getElementById('pwa-install-banner');
+        const installBtn = document.getElementById('pwa-install-btn');
+        const closeBtn = document.getElementById('pwa-close-btn');
+        const guideModal = document.getElementById('pwa-guide-modal');
+        const closeGuideBtn = document.getElementById('close-guide-btn');
+        const iosSteps = document.getElementById('ios-steps');
+        const androidSteps = document.getElementById('android-steps');
+
+        const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
+        const isStandalone = window.matchMedia('(display-mode: standalone)').matches || window.navigator.standalone;
+
+        // Hide banner if app is already running as standalone app
+        if (isStandalone) {
+            banner.style.display = 'none';
+        } else {
+            // Show banner after a short delay (allows page to load first)
+            setTimeout(() => {
+                banner.style.display = 'flex';
+            }, 2000); // 2 second delay
+        }
+
+        window.addEventListener('beforeinstallprompt', (e) => {
+            e.preventDefault();
+            deferredPrompt = e;
+            banner.style.display = 'flex';
+        });
+
+        installBtn.addEventListener('click', () => {
+            if (deferredPrompt) {
+                deferredPrompt.prompt();
+                deferredPrompt.userChoice.then((choiceResult) => {
+                    if (choiceResult.outcome === 'accepted') {
+                        banner.style.display = 'none';
+                    }
+                    deferredPrompt = null;
+                });
+            } else if (isIOS) {
+                iosSteps.style.display = 'block';
+                androidSteps.style.display = 'none';
+                guideModal.classList.add('open');
+            } else {
+                // Fallback for desktop/android browsers when prompt is unavailable
+                androidSteps.style.display = 'block';
+                iosSteps.style.display = 'none';
+                guideModal.classList.add('open');
+            }
+        });
+
+        closeBtn.addEventListener('click', () => {
+            banner.style.display = 'none';
+        });
+
+        closeGuideBtn.addEventListener('click', () => {
+            guideModal.classList.remove('open');
+        });
+
+        // Close guide modal when clicking outside
+        guideModal.addEventListener('click', (e) => {
+            if (e.target === guideModal) {
+                guideModal.classList.remove('open');
+            }
+        });
+
+        // Cart & Ordering
+        document.addEventListener('DOMContentLoaded', () => {
+            let cart = [];
+            let orderType = 'Pickup';
+
+            const categoryBtns = document.querySelectorAll('.category-btn');
+            categoryBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    categoryBtns.forEach(b => b.classList.remove('active'));
+                    btn.classList.add('active');
+                    document.querySelectorAll('.menu-section').forEach(s => s.classList.remove('active'));
+                    document.getElementById(btn.dataset.target).classList.add('active');
+                });
+            });
+
+            function renderItemControls() {
+                document.querySelectorAll('.menu-item').forEach(el => {
+                    const name = el.dataset.name;
+                    const price = Number(el.dataset.price);
+                    const action = el.querySelector('.item-action');
+                    const inCart = cart.find(i => i.name === name);
+
+                    action.innerHTML = '';
+                    if (!inCart) {
+                        const btn = document.createElement('button');
+                        btn.className = 'add-btn';
+                        btn.textContent = '+ Add';
+                        btn.addEventListener('click', () => changeQty(name, price, 1));
+                        action.appendChild(btn);
+                    } else {
+                        const wrap = document.createElement('div');
+                        wrap.className = 'qty-control';
+
+                        const minus = document.createElement('button');
+                        minus.textContent = '−';
+                        minus.addEventListener('click', () => changeQty(name, price, -1));
+
+                        const qty = document.createElement('span');
+                        qty.textContent = inCart.qty;
+
+                        const plus = document.createElement('button');
+                        plus.textContent = '+';
+                        plus.addEventListener('click', () => changeQty(name, price, 1));
+
+                        wrap.appendChild(minus);
+                        wrap.appendChild(qty);
+                        wrap.appendChild(plus);
+                        action.appendChild(wrap);
+                    }
+                });
+            }
+
+            function changeQty(name, price, delta) {
+                const existing = cart.find(i => i.name === name);
+                if (existing) {
+                    existing.qty += delta;
+                    if (existing.qty <= 0) {
+                        cart = cart.filter(i => i.name !== name);
+                    }
+                } else if (delta > 0) {
+                    cart.push({ name, price, qty: 1 });
+                }
+                renderAll();
+            }
+
+            function removeLine(name) {
+                cart = cart.filter(i => i.name !== name);
+                renderAll();
+            }
+
+            function renderCartSummary() {
+                const totalItems = cart.reduce((sum, i) => sum + i.qty, 0);
+                const totalPrice = cart.reduce((sum, i) => sum + i.qty * i.price, 0);
+                document.getElementById('item-count').innerText = totalItems;
+                document.getElementById('cart-total').innerText = totalPrice.toLocaleString();
+                document.getElementById('checkout-btn').disabled = cart.length === 0;
+
+                const linesWrap = document.getElementById('cart-lines');
+                linesWrap.innerHTML = '';
+                if (cart.length === 0) {
+                    linesWrap.innerHTML = '<div style="padding:16px 20px; color: var(--text-muted); font-size: 0.85rem;">Your cart is empty.</div>';
+                } else {
+                    cart.forEach(item => {
+                        const line = document.createElement('div');
+                        line.className = 'cart-line';
+                        line.innerHTML = `
+                            <span>${item.qty} × ${item.name} — ₦${(item.qty * item.price).toLocaleString()}</span>
+                            <button class="remove-line" data-name="${item.name}">Remove</button>
+                        `;
+                        line.querySelector('.remove-line').addEventListener('click', () => removeLine(item.name));
+                        linesWrap.appendChild(line);
+                    });
+                }
+            }
+
+            function renderAll() {
+                renderItemControls();
+                renderCartSummary();
+            }
+
+            document.getElementById('cart-summary-row').addEventListener('click', (e) => {
+                // Only toggle if not clicking the checkout button
+                if (!e.target.closest('#checkout-btn')) {
+                    document.getElementById('cart-details').classList.toggle('open');
+                }
+            });
+
+            // Separate event listener for checkout button
+            document.getElementById('checkout-btn').addEventListener('click', (e) => {
+                e.stopPropagation();
+                if (cart.length === 0) return;
+                overlay.classList.add('open');
+            });
+
+            const overlay = document.getElementById('modal-overlay');
+            const pickupBtn = document.getElementById('pickup-btn');
+            const deliveryBtn = document.getElementById('delivery-btn');
+            const addressGroup = document.getElementById('group-address');
+
+            document.getElementById('modal-cancel').addEventListener('click', () => {
+                overlay.classList.remove('open');
+            });
+
+            // Close modal when clicking outside
+            overlay.addEventListener('click', (e) => {
+                if (e.target === overlay) {
+                    overlay.classList.remove('open');
+                }
+            });
+
+            pickupBtn.addEventListener('click', () => {
+                orderType = 'Pickup';
+                pickupBtn.classList.add('active');
+                deliveryBtn.classList.remove('active');
+                addressGroup.style.display = 'none';
+            });
+
+            deliveryBtn.addEventListener('click', () => {
+                orderType = 'Delivery';
+                deliveryBtn.classList.add('active');
+                pickupBtn.classList.remove('active');
+                addressGroup.style.display = 'block';
+            });
+
+            function setInvalid(groupId, invalid) {
+                document.getElementById(groupId).classList.toggle('invalid', invalid);
+            }
+
+            document.getElementById('modal-send').addEventListener('click', () => {
+                const name = document.getElementById('cust-name').value.trim();
+                const phone = document.getElementById('cust-phone').value.trim();
+                const address = document.getElementById('cust-address').value.trim();
+                const notes = document.getElementById('cust-notes').value.trim();
+
+                const phoneValid = /^[0-9+\s()-]{7,}$/.test(phone);
+
+                let valid = true;
+                setInvalid('group-name', !name);
+                if (!name) valid = false;
+
+                setInvalid('group-phone', !phoneValid);
+                if (!phoneValid) valid = false;
+
+                if (orderType === 'Delivery') {
+                    setInvalid('group-address', !address);
+                    if (!address) valid = false;
+                } else {
+                    setInvalid('group-address', false);
+                }
+
+                if (!valid) return;
+
+                sendWhatsAppOrder({ name, phone, address, notes });
+            });
+
+            function sendWhatsAppOrder({ name, phone, address, notes }) {
+                const restaurantWhatsApp = "2348182006644";
+                const totalPrice = cart.reduce((sum, i) => sum + i.qty * i.price, 0);
+
+                let lines = [];
+                lines.push('Hello Spice & Rice Bistro! I would like to place an order:');
+                lines.push('');
+                cart.forEach((item, index) => {
+                    lines.push(`${index + 1}. ${item.name} x${item.qty} - ₦${(item.qty * item.price).toLocaleString()}`);
+                });
+                lines.push('');
+                lines.push(`Total: ₦${totalPrice.toLocaleString()}`);
+                lines.push('');
+                lines.push(`Name: ${name}`);
+                lines.push(`Phone: ${phone}`);
+                lines.push(`Order type: ${orderType}`);
+                if (orderType === 'Delivery') {
+                    lines.push(`Delivery address: ${address}`);
+                }
+                if (notes) {
+                    lines.push(`Notes: ${notes}`);
+                }
+
+                const message = encodeURIComponent(lines.join('\n'));
+                window.open(`https://wa.me/${restaurantWhatsApp}?text=${message}`, '_blank');
+                overlay.classList.remove('open');
+                
+                // Clear cart after successful order
+                cart = [];
+                renderAll();
+            }
+
+            renderAll();
+        });
+    </script>
+</body>
+</html>        * {
             box-sizing: border-box;
             margin: 0;
             padding: 0;
