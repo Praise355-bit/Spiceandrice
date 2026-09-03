@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spice & Rice Bistro | Maitama Executive Dining</title>
+    <style>
+        :root {
+            --bg-color: #0f1115;
+            --card-bg: #181b22;
+            --accent-gold: #e5a93c;
+            --text-main: #f3f4f6;
+            --text-muted: #9ca3af;
+            --whatsapp-green: #25d366;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            padding-bottom: 90px;
+        }
+
+        header {
+            background: linear-gradient(rgba(15,17,21,0.7), var(--bg-color)), url('https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&w=800&q=80') center/cover;
+            padding: 45px 20px 25px;
+            text-align: center;
+        }
+
+        header h1 {
+            color: var(--accent-gold);
+            font-size: 1.8rem;
+            letter-spacing: 1px;
+            margin-bottom: 6px;
+        }
+
+        header p {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        .category-nav {
+            display: flex;
+            gap: 10px;
+            overflow-x: auto;
+            padding: 15px 20px;
+            position: sticky;
+            top: 0;
+            background-color: var(--bg-color);
+            z-index: 10;
+            border-bottom: 1px solid #2a2e39;
+        }
+
+        .category-btn {
+            background: var(--card-bg);
+            color: var(--text-main);
+            border: 1px solid #2a2e39;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            white-space: nowrap;
+            cursor: pointer;
+        }
+
+        .category-btn.active {
+            background: var(--accent-gold);
+            color: #000;
+            font-weight: bold;
+            border-color: var(--accent-gold);
+        }
+
+        .menu-container {
+            padding: 20px;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            color: var(--accent-gold);
+            font-size: 1.1rem;
+            margin: 20px 0 12px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .menu-item {
+            background-color: var(--card-bg);
+            border: 1px solid #2a2e39;
+            border-radius: 12px;
+            padding: 14px;
+            margin-bottom: 12px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .item-info h3 {
+            font-size: 1rem;
+            margin-bottom: 4px;
+        }
+
+        .item-info p {
+            color: var(--text-muted);
+            font-size: 0.8rem;
+            margin-bottom: 8px;
+        }
+
+        .item-price {
+            color: var(--accent-gold);
+            font-weight: bold;
+            font-size: 0.95rem;
+        }
+
+        .add-btn {
+            background-color: transparent;
+            border: 1px solid var(--accent-gold);
+            color: var(--accent-gold);
+            padding: 6px 14px;
+            border-radius: 6px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+
+        .add-btn:hover {
+            background-color: var(--accent-gold);
+            color: #000;
+        }
+
+        .cart-bar {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background-color: var(--card-bg);
+            border-top: 1px solid #2a2e39;
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .checkout-btn {
+            background-color: var(--whatsapp-green);
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 8px;
+            font-weight: bold;
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>SPICE & RICE BISTRO</h1>
+        <p>Maitama Executive Lunch & Express Orders</p>
+    </header>
+
+    <div class="category-nav">
+        <button class="category-btn active">Signature Rice</button>
+        <button class="category-btn">Grills & Sides</button>
+        <button class="category-btn">Executive Bowls</button>
+    </div>
+
+    <div class="menu-container">
+        <div class="section-title">Signature Rice Dishes</div>
+
+        <div class="menu-item">
+            <div class="item-info">
+                <h3>Smokey Party Jollof</h3>
+                <p>Served with peppered chicken & fried plantain</p>
+                <div class="item-price">₦6,500</div>
+            </div>
+            <button class="add-btn" onclick="addToCart('Smokey Party Jollof', 6500)">+ Add</button>
+        </div>
+
+        <div class="menu-item">
+            <div class="item-info">
+                <h3>Asun Fried Rice</h3>
+                <p>Spicy stir-fry vegetable rice with boneless goat meat</p>
+                <div class="item-price">₦8,500</div>
+            </div>
+            <button class="add-btn" onclick="addToCart('Asun Fried Rice', 8500)">+ Add</button>
+        </div>
+
+        <div class="menu-item">
+            <div class="item-info">
+                <h3>Native Palm Oil Rice</h3>
+                <p>Cooked with smoked mackerel, dried fish & local spices</p>
+                <div class="item-price">₦7,000</div>
+            </div>
+            <button class="add-btn" onclick="addToCart('Native Palm Oil Rice', 7000)">+ Add</button>
+        </div>
+
+        <div class="section-title">Proteins & Sides</div>
+
+        <div class="menu-item">
+            <div class="item-info">
+                <h3>Peppered Turkey Wing</h3>
+                <p>Slow-roasted in house spicy pepper sauce</p>
+                <div class="item-price">₦4,500</div>
+            </div>
+            <button class="add-btn" onclick="addToCart('Peppered Turkey Wing', 4500)">+ Add</button>
+        </div>
+    </div>
+
+    <div class="cart-bar">
+        <div>
+            <div style="font-size: 0.75rem; color: var(--text-muted);">Selected Items: <span id="item-count">0</span></div>
+            <div style="font-weight: bold; font-size: 1.1rem;">Total: ₦<span id="cart-total">0</span></div>
+        </div>
+        <button class="checkout-btn" onclick="sendWhatsAppOrder()">
+            Order via WhatsApp
+        </button>
+    </div>
+
+    <script>
+        let cart = [];
+        let total = 0;
+
+        function addToCart(name, price) {
+            cart.push({name, price});
+            total += price;
+            document.getElementById('item-count').innerText = cart.length;
+            document.getElementById('cart-total').innerText = total.toLocaleString();
+        }
+
+        function sendWhatsAppOrder() {
+            if (cart.length === 0) {
+                alert('Please select at least one item to order.');
+                return;
+            }
+
+            let restaurantWhatsApp = "2348182006644"; // Replace with actual number
+            let message = "Hello Spice %26 Rice Bistro! I would like to place an order:%0A%0A";
+            
+            cart.forEach((item, index) => {
+                message += `${index + 1}. ${item.name} - ₦${item.price.toLocaleString()}%0A`;
+            });
+
+            message += `%0ATotal: ₦${total.toLocaleString()}%0A%0ADelivery Address: [Type Your Address Here]`;
+            
+            window.open(`https://wa.me/${restaurantWhatsApp}?text=${message}`, '_blank');
+        }
+    </script>
+</body>
+</html>
