@@ -4,45 +4,98 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Spice & Rice Bistro | Maitama Executive Dining</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
         :root {
-            --bg-color: #0f1115;
-            --card-bg: #181b22;
-            --accent-gold: #e5a93c;
-            --text-main: #f3f4f6;
-            --text-muted: #9ca3af;
+            --bg-color: #0a0a0a;
+            --card-bg: #161412;
+            --accent-gold: #d4af37;
+            --accent-gold-soft: #f0d789;
+            --text-main: #f5f0e6;
+            --text-muted: #9a9186;
             --whatsapp-green: #25d366;
+            --danger: #e5533c;
+            --border: #2c2822;
         }
 
         * {
             box-sizing: border-box;
             margin: 0;
             padding: 0;
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            font-family: 'Poppins', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+        }
+
+        button, input, textarea, select {
+            font-family: 'Poppins', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
         }
 
         body {
             background-color: var(--bg-color);
+            background-image:
+                radial-gradient(circle at 20% 10%, rgba(212,175,55,0.05), transparent 40%),
+                radial-gradient(circle at 80% 0%, rgba(212,175,55,0.04), transparent 35%);
             color: var(--text-main);
-            padding-bottom: 90px;
+            padding-bottom: 200px;
         }
 
         header {
-            background: linear-gradient(rgba(15,17,21,0.7), var(--bg-color)), url('https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&w=800&q=80') center/cover;
-            padding: 45px 20px 25px;
+            background: linear-gradient(rgba(10,10,10,0.75), var(--bg-color)), url('https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&w=800&q=80') center/cover;
+            padding: 56px 20px 30px;
             text-align: center;
+            border-bottom: 1px solid var(--border);
+            position: relative;
         }
 
         header h1 {
             color: var(--accent-gold);
-            font-size: 1.8rem;
-            letter-spacing: 1px;
-            margin-bottom: 6px;
+            background: linear-gradient(180deg, var(--accent-gold-soft), var(--accent-gold));
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-weight: 700;
+            font-size: 2rem;
+            letter-spacing: 3.5px;
+            margin-bottom: 12px;
+            text-shadow: 0 0 40px rgba(212,175,55,0.25);
+        }
+
+        header .divider {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            margin: 0 auto 14px;
+        }
+
+        header .divider::before,
+        header .divider::after {
+            content: '';
+            width: 32px;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--accent-gold));
+        }
+
+        header .divider::after {
+            background: linear-gradient(90deg, var(--accent-gold), transparent);
+        }
+
+        header .divider span {
+            width: 5px;
+            height: 5px;
+            background: var(--accent-gold);
+            transform: rotate(45deg);
         }
 
         header p {
             color: var(--text-muted);
-            font-size: 0.9rem;
+            font-size: 0.85rem;
+            font-weight: 300;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+        }
+            text-transform: uppercase;
         }
 
         .category-nav {
@@ -54,25 +107,30 @@
             top: 0;
             background-color: var(--bg-color);
             z-index: 10;
-            border-bottom: 1px solid #2a2e39;
+            border-bottom: 1px solid var(--border);
+            box-shadow: 0 8px 16px -8px rgba(0,0,0,0.6);
         }
 
         .category-btn {
             background: var(--card-bg);
-            color: var(--text-main);
-            border: 1px solid #2a2e39;
-            padding: 8px 16px;
+            color: var(--text-muted);
+            border: 1px solid var(--border);
+            padding: 9px 18px;
             border-radius: 20px;
-            font-size: 0.85rem;
+            font-size: 0.78rem;
+            font-weight: 500;
+            letter-spacing: 0.5px;
             white-space: nowrap;
             cursor: pointer;
+            transition: 0.2s;
         }
 
         .category-btn.active {
-            background: var(--accent-gold);
-            color: #000;
-            font-weight: bold;
+            background: linear-gradient(135deg, var(--accent-gold-soft), var(--accent-gold));
+            color: #0a0a0a;
+            font-weight: 600;
             border-color: var(--accent-gold);
+            box-shadow: 0 4px 14px rgba(212,175,55,0.3);
         }
 
         .menu-container {
@@ -81,181 +139,768 @@
             margin: 0 auto;
         }
 
+        .menu-section {
+            display: none;
+        }
+
+        .menu-section.active {
+            display: block;
+        }
+
         .section-title {
             color: var(--accent-gold);
-            font-size: 1.1rem;
-            margin: 20px 0 12px;
+            font-size: 1rem;
+            font-weight: 600;
+            margin: 28px 0 16px;
+            letter-spacing: 1.5px;
             text-transform: uppercase;
-            letter-spacing: 0.5px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .section-title::before {
+            content: '';
+            width: 6px;
+            height: 6px;
+            background: var(--accent-gold);
+            transform: rotate(45deg);
+            flex-shrink: 0;
+        }
+
+        .section-title::after {
+            content: '';
+            flex: 1;
+            height: 1px;
+            background: linear-gradient(90deg, var(--border), transparent);
         }
 
         .menu-item {
-            background-color: var(--card-bg);
-            border: 1px solid #2a2e39;
-            border-radius: 12px;
-            padding: 14px;
+            background: linear-gradient(135deg, #171310, var(--card-bg));
+            border: 1px solid var(--border);
+            border-left: 2px solid var(--accent-gold);
+            border-radius: 4px;
+            padding: 16px;
             margin-bottom: 12px;
             display: flex;
             justify-content: space-between;
             align-items: center;
+            gap: 10px;
+            box-shadow: 0 4px 14px rgba(0,0,0,0.35);
+            transition: border-color 0.25s, transform 0.25s, box-shadow 0.25s;
+        }
+
+        .menu-item:hover {
+            transform: translateY(-2px);
+            border-color: var(--accent-gold);
+            box-shadow: 0 8px 22px rgba(0,0,0,0.45), 0 0 0 1px rgba(212,175,55,0.25);
         }
 
         .item-info h3 {
             font-size: 1rem;
+            font-weight: 500;
             margin-bottom: 4px;
+            letter-spacing: 0.3px;
         }
 
         .item-info p {
             color: var(--text-muted);
-            font-size: 0.8rem;
-            margin-bottom: 8px;
+            font-size: 0.78rem;
+            font-weight: 300;
+            margin-bottom: 10px;
+            line-height: 1.4;
         }
 
         .item-price {
+            display: inline-block;
             color: var(--accent-gold);
-            font-weight: bold;
-            font-size: 0.95rem;
+            font-weight: 600;
+            font-size: 0.85rem;
+            letter-spacing: 0.5px;
+            background: rgba(212,175,55,0.1);
+            border: 1px solid rgba(212,175,55,0.3);
+            padding: 3px 10px;
+            border-radius: 20px;
         }
 
         .add-btn {
             background-color: transparent;
             border: 1px solid var(--accent-gold);
             color: var(--accent-gold);
-            padding: 6px 14px;
-            border-radius: 6px;
-            font-weight: bold;
+            padding: 7px 16px;
+            border-radius: 4px;
+            font-weight: 500;
+            font-size: 0.82rem;
+            letter-spacing: 0.5px;
             cursor: pointer;
             transition: 0.2s;
+            flex-shrink: 0;
         }
 
         .add-btn:hover {
-            background-color: var(--accent-gold);
-            color: #000;
+            background: linear-gradient(135deg, var(--accent-gold-soft), var(--accent-gold));
+            color: #0a0a0a;
+            border-color: var(--accent-gold);
         }
 
+        .qty-control {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            flex-shrink: 0;
+        }
+
+        .qty-control button {
+            width: 28px;
+            height: 28px;
+            border-radius: 6px;
+            border: 1px solid var(--border);
+            background: var(--bg-color);
+            color: var(--text-main);
+            font-size: 1rem;
+            cursor: pointer;
+        }
+
+        .qty-control span {
+            min-width: 18px;
+            text-align: center;
+            font-weight: bold;
+        }
+
+        .empty-state {
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            padding: 8px 0;
+        }
+
+        /* Cart drawer */
         .cart-bar {
             position: fixed;
             bottom: 0;
             left: 0;
             right: 0;
             background-color: var(--card-bg);
-            border-top: 1px solid #2a2e39;
-            padding: 15px 20px;
+            border-top: 1px solid var(--accent-gold);
+            max-width: 600px;
+            margin: 0 auto;
+            z-index: 20;
+            box-shadow: 0 -10px 24px rgba(0,0,0,0.5);
+        }
+
+        .cart-summary-row {
+            padding: 14px 20px;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            max-width: 600px;
-            margin: 0 auto;
+            cursor: pointer;
         }
 
         .checkout-btn {
-            background-color: var(--whatsapp-green);
-            color: #fff;
+            background: linear-gradient(135deg, var(--accent-gold-soft), var(--accent-gold));
+            color: #0a0a0a;
             border: none;
-            padding: 10px 20px;
-            border-radius: 8px;
-            font-weight: bold;
-            font-size: 0.9rem;
-            display: flex;
-            align-items: center;
-            gap: 8px;
+            padding: 11px 22px;
+            border-radius: 6px;
+            font-weight: 600;
+            font-size: 0.85rem;
+            letter-spacing: 0.5px;
             cursor: pointer;
+            box-shadow: 0 4px 16px rgba(212,175,55,0.35);
+        }
+
+        .checkout-btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        .cart-details {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.25s ease;
+            border-top: 1px solid var(--border);
+        }
+
+        .cart-details.open {
+            max-height: 240px;
+            overflow-y: auto;
+        }
+
+        .cart-line {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+            border-bottom: 1px solid var(--border);
+            font-size: 0.85rem;
+        }
+
+        .cart-line .remove-line {
+            color: var(--danger);
+            background: none;
+            border: none;
+            font-size: 0.8rem;
+            cursor: pointer;
+            text-decoration: underline;
+        }
+
+        /* Modal for customer details */
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(0,0,0,0.7);
+            backdrop-filter: blur(4px);
+            -webkit-backdrop-filter: blur(4px);
+            z-index: 50;
+            align-items: flex-end;
+            justify-content: center;
+        }
+
+        .modal-overlay.open {
+            display: flex;
+        }
+
+        .modal {
+            background: var(--card-bg);
+            width: 100%;
+            max-width: 600px;
+            border-radius: 16px 16px 0 0;
+            border-top: 1px solid var(--accent-gold);
+            padding: 24px 20px;
+            max-height: 85vh;
+            overflow-y: auto;
+            box-shadow: 0 -12px 30px rgba(0,0,0,0.5);
+        }
+
+        .modal h2 {
+            color: var(--accent-gold);
+            font-weight: 600;
+            font-size: 1.15rem;
+            letter-spacing: 0.5px;
+            margin-bottom: 18px;
+        }
+
+        .form-group {
+            margin-bottom: 16px;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 0.75rem;
+            font-weight: 400;
+            letter-spacing: 0.5px;
+            color: var(--text-muted);
+            margin-bottom: 6px;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            background: var(--bg-color);
+            border: 1px solid var(--border);
+            color: var(--text-main);
+            padding: 11px 13px;
+            border-radius: 6px;
+            font-size: 0.9rem;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--accent-gold);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 60px;
+        }
+
+        .required-mark {
+            color: var(--danger);
+        }
+
+        .error-text {
+            color: var(--danger);
+            font-size: 0.75rem;
+            margin-top: 4px;
+            display: none;
+        }
+
+        .form-group.invalid input,
+        .form-group.invalid textarea {
+            border-color: var(--danger);
+        }
+
+        .form-group.invalid .error-text {
+            display: block;
+        }
+
+        .order-type-toggle {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 14px;
+        }
+
+        .order-type-toggle button {
+            flex: 1;
+            padding: 11px;
+            border-radius: 6px;
+            border: 1px solid var(--border);
+            background: var(--bg-color);
+            color: var(--text-main);
+            cursor: pointer;
+            font-size: 0.82rem;
+            font-weight: 400;
+            letter-spacing: 0.5px;
+            transition: 0.2s;
+        }
+
+        .order-type-toggle button.active {
+            background: linear-gradient(135deg, var(--accent-gold-soft), var(--accent-gold));
+            color: #0a0a0a;
+            border-color: var(--accent-gold);
+            font-weight: 600;
+        }
+
+        .modal-actions {
+            display: flex;
+            gap: 10px;
+            margin-top: 8px;
+        }
+
+        .modal-actions button {
+            flex: 1;
+            padding: 13px;
+            border-radius: 6px;
+            font-weight: 600;
+            font-size: 0.88rem;
+            letter-spacing: 0.5px;
+            cursor: pointer;
+            border: none;
+        }
+
+        .btn-cancel {
+            background: transparent;
+            border: 1px solid var(--border) !important;
+            color: var(--text-muted);
+        }
+
+        .btn-send {
+            background: var(--whatsapp-green);
+            color: #fff;
         }
     </style>
 </head>
 <body>
 
     <header>
-        <h1>SPICE & RICE BISTRO</h1>
+        <h1>Spice &amp; Rice Bistro</h1>
+        <div class="divider"><span></span></div>
         <p>Maitama Executive Lunch & Express Orders</p>
     </header>
 
     <div class="category-nav">
-        <button class="category-btn active">Signature Rice</button>
-        <button class="category-btn">Grills & Sides</button>
-        <button class="category-btn">Executive Bowls</button>
+        <button class="category-btn active" data-target="signature-rice">Signature Rice</button>
+        <button class="category-btn" data-target="proteins-sides">Grills & Sides</button>
+        <button class="category-btn" data-target="executive-bowls">Executive Bowls</button>
     </div>
 
     <div class="menu-container">
-        <div class="section-title">Signature Rice Dishes</div>
 
-        <div class="menu-item">
-            <div class="item-info">
-                <h3>Smokey Party Jollof</h3>
-                <p>Served with peppered chicken & fried plantain</p>
-                <div class="item-price">₦6,500</div>
+        <div class="menu-section active" id="signature-rice">
+            <div class="section-title">Signature Rice Dishes</div>
+
+            <div class="menu-item" data-name="Smokey Party Jollof" data-price="6500">
+                <div class="item-info">
+                    <h3>Smokey Party Jollof</h3>
+                    <p>Served with peppered chicken & fried plantain</p>
+                    <div class="item-price">₦6,500</div>
+                </div>
+                <div class="item-action"></div>
             </div>
-            <button class="add-btn" onclick="addToCart('Smokey Party Jollof', 6500)">+ Add</button>
+
+            <div class="menu-item" data-name="Asun Fried Rice" data-price="8500">
+                <div class="item-info">
+                    <h3>Asun Fried Rice</h3>
+                    <p>Spicy stir-fry vegetable rice with boneless goat meat</p>
+                    <div class="item-price">₦8,500</div>
+                </div>
+                <div class="item-action"></div>
+            </div>
+
+            <div class="menu-item" data-name="Native Palm Oil Rice" data-price="7000">
+                <div class="item-info">
+                    <h3>Native Palm Oil Rice</h3>
+                    <p>Cooked with smoked mackerel, dried fish & local spices</p>
+                    <div class="item-price">₦7,000</div>
+                </div>
+                <div class="item-action"></div>
+            </div>
+
+            <div class="menu-item" data-name="Coconut Jollof Rice" data-price="7500">
+                <div class="item-info">
+                    <h3>Coconut Jollof Rice</h3>
+                    <p>Slow-simmered in coconut milk, served with grilled prawns</p>
+                    <div class="item-price">₦7,500</div>
+                </div>
+                <div class="item-action"></div>
+            </div>
+
+            <div class="menu-item" data-name="Ofada Rice & Ayamase" data-price="8000">
+                <div class="item-info">
+                    <h3>Ofada Rice & Ayamase</h3>
+                    <p>Local ofada rice with green pepper sauce and assorted meat</p>
+                    <div class="item-price">₦8,000</div>
+                </div>
+                <div class="item-action"></div>
+            </div>
+
+            <div class="menu-item" data-name="Seafood Fried Rice" data-price="9500">
+                <div class="item-info">
+                    <h3>Seafood Fried Rice</h3>
+                    <p>Wok-tossed rice with prawns, calamari & mixed vegetables</p>
+                    <div class="item-price">₦9,500</div>
+                </div>
+                <div class="item-action"></div>
+            </div>
         </div>
 
-        <div class="menu-item">
-            <div class="item-info">
-                <h3>Asun Fried Rice</h3>
-                <p>Spicy stir-fry vegetable rice with boneless goat meat</p>
-                <div class="item-price">₦8,500</div>
+        <div class="menu-section" id="proteins-sides">
+            <div class="section-title">Proteins & Sides</div>
+
+            <div class="menu-item" data-name="Peppered Turkey Wing" data-price="4500">
+                <div class="item-info">
+                    <h3>Peppered Turkey Wing</h3>
+                    <p>Slow-roasted in house spicy pepper sauce</p>
+                    <div class="item-price">₦4,500</div>
+                </div>
+                <div class="item-action"></div>
             </div>
-            <button class="add-btn" onclick="addToCart('Asun Fried Rice', 8500)">+ Add</button>
+
+            <div class="menu-item" data-name="Suya Beef Skewers" data-price="5000">
+                <div class="item-info">
+                    <h3>Suya Beef Skewers</h3>
+                    <p>Char-grilled beef strips coated in yaji spice, onions & tomato</p>
+                    <div class="item-price">₦5,000</div>
+                </div>
+                <div class="item-action"></div>
+            </div>
+
+            <div class="menu-item" data-name="Grilled Tilapia" data-price="6000">
+                <div class="item-info">
+                    <h3>Grilled Tilapia</h3>
+                    <p>Whole fish marinated in pepper sauce, grilled over open flame</p>
+                    <div class="item-price">₦6,000</div>
+                </div>
+                <div class="item-action"></div>
+            </div>
+
+            <div class="menu-item" data-name="Fried Plantain (Dodo)" data-price="1500">
+                <div class="item-info">
+                    <h3>Fried Plantain (Dodo)</h3>
+                    <p>Sweet ripe plantain, lightly caramelized</p>
+                    <div class="item-price">₦1,500</div>
+                </div>
+                <div class="item-action"></div>
+            </div>
+
+            <div class="menu-item" data-name="Moi Moi" data-price="1800">
+                <div class="item-info">
+                    <h3>Moi Moi</h3>
+                    <p>Steamed bean pudding with egg, fish flakes & peppers</p>
+                    <div class="item-price">₦1,800</div>
+                </div>
+                <div class="item-action"></div>
+            </div>
         </div>
 
-        <div class="menu-item">
-            <div class="item-info">
-                <h3>Native Palm Oil Rice</h3>
-                <p>Cooked with smoked mackerel, dried fish & local spices</p>
-                <div class="item-price">₦7,000</div>
+        <div class="menu-section" id="executive-bowls">
+            <div class="section-title">Executive Bowls</div>
+
+            <div class="menu-item" data-name="Executive Protein Bowl" data-price="9000">
+                <div class="item-info">
+                    <h3>Executive Protein Bowl</h3>
+                    <p>Jollof rice, grilled chicken, plantain & coleslaw in one tray</p>
+                    <div class="item-price">₦9,000</div>
+                </div>
+                <div class="item-action"></div>
             </div>
-            <button class="add-btn" onclick="addToCart('Native Palm Oil Rice', 7000)">+ Add</button>
+
+            <div class="menu-item" data-name="Surf & Turf Bowl" data-price="11000">
+                <div class="item-info">
+                    <h3>Surf & Turf Bowl</h3>
+                    <p>Grilled prawns, peppered beef, fried rice & side salad</p>
+                    <div class="item-price">₦11,000</div>
+                </div>
+                <div class="item-action"></div>
+            </div>
+
+            <div class="menu-item" data-name="Vegetarian Power Bowl" data-price="6500">
+                <div class="item-info">
+                    <h3>Vegetarian Power Bowl</h3>
+                    <p>Vegetable jollof, moi moi, dodo & sautéed greens</p>
+                    <div class="item-price">₦6,500</div>
+                </div>
+                <div class="item-action"></div>
+            </div>
         </div>
 
-        <div class="section-title">Proteins & Sides</div>
+    </div>
 
-        <div class="menu-item">
-            <div class="item-info">
-                <h3>Peppered Turkey Wing</h3>
-                <p>Slow-roasted in house spicy pepper sauce</p>
-                <div class="item-price">₦4,500</div>
+    <!-- Cart bar -->
+    <div class="cart-bar">
+        <div class="cart-summary-row" id="cart-summary-row">
+            <div>
+                <div style="font-size: 0.72rem; color: var(--text-muted); letter-spacing: 0.5px;">Selected Items: <span id="item-count">0</span></div>
+                <div style="font-weight: 600; font-size: 1.1rem; color: var(--accent-gold);">Total: ₦<span id="cart-total">0</span></div>
             </div>
-            <button class="add-btn" onclick="addToCart('Peppered Turkey Wing', 4500)">+ Add</button>
+            <button class="checkout-btn" id="checkout-btn" disabled>Order via WhatsApp</button>
+        </div>
+        <div class="cart-details" id="cart-details">
+            <div id="cart-lines"></div>
         </div>
     </div>
 
-    <div class="cart-bar">
-        <div>
-            <div style="font-size: 0.75rem; color: var(--text-muted);">Selected Items: <span id="item-count">0</span></div>
-            <div style="font-weight: bold; font-size: 1.1rem;">Total: ₦<span id="cart-total">0</span></div>
+    <!-- Customer details modal -->
+    <div class="modal-overlay" id="modal-overlay">
+        <div class="modal">
+            <h2>Your order details</h2>
+
+            <div class="order-type-toggle">
+                <button type="button" id="pickup-btn" class="active">Pickup</button>
+                <button type="button" id="delivery-btn">Delivery</button>
+            </div>
+
+            <div class="form-group" id="group-name">
+                <label for="cust-name">Full name <span class="required-mark">*</span></label>
+                <input type="text" id="cust-name" placeholder="e.g. Amaka Obi">
+                <div class="error-text">Please enter your name.</div>
+            </div>
+
+            <div class="form-group" id="group-phone">
+                <label for="cust-phone">Phone number <span class="required-mark">*</span></label>
+                <input type="tel" id="cust-phone" placeholder="e.g. 0803 123 4567">
+                <div class="error-text">Please enter a valid phone number.</div>
+            </div>
+
+            <div class="form-group" id="group-address" style="display:none;">
+                <label for="cust-address">Delivery address <span class="required-mark">*</span></label>
+                <textarea id="cust-address" placeholder="Street, area, landmark"></textarea>
+                <div class="error-text">Please enter a delivery address.</div>
+            </div>
+
+            <div class="form-group">
+                <label for="cust-notes">Notes (optional)</label>
+                <textarea id="cust-notes" placeholder="Allergies, spice level, extra requests..."></textarea>
+            </div>
+
+            <div class="modal-actions">
+                <button type="button" class="btn-cancel" id="modal-cancel">Cancel</button>
+                <button type="button" class="btn-send" id="modal-send">Send order</button>
+            </div>
         </div>
-        <button class="checkout-btn" onclick="sendWhatsAppOrder()">
-            Order via WhatsApp
-        </button>
     </div>
 
     <script>
-        let cart = [];
-        let total = 0;
+        let cart = []; // { name, price, qty }
+        let orderType = 'Pickup';
 
-        function addToCart(name, price) {
-            cart.push({name, price});
-            total += price;
-            document.getElementById('item-count').innerText = cart.length;
-            document.getElementById('cart-total').innerText = total.toLocaleString();
+        // ---- Category filtering ----
+        const categoryBtns = document.querySelectorAll('.category-btn');
+        categoryBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                categoryBtns.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                document.querySelectorAll('.menu-section').forEach(s => s.classList.remove('active'));
+                document.getElementById(btn.dataset.target).classList.add('active');
+            });
+        });
+
+        // ---- Render add/qty controls per menu item ----
+        function renderItemControls() {
+            document.querySelectorAll('.menu-item').forEach(el => {
+                const name = el.dataset.name;
+                const price = Number(el.dataset.price);
+                const action = el.querySelector('.item-action');
+                const inCart = cart.find(i => i.name === name);
+
+                if (!inCart) {
+                    action.innerHTML = '';
+                    const btn = document.createElement('button');
+                    btn.className = 'add-btn';
+                    btn.textContent = '+ Add';
+                    btn.addEventListener('click', () => changeQty(name, price, 1));
+                    action.appendChild(btn);
+                } else {
+                    action.innerHTML = '';
+                    const wrap = document.createElement('div');
+                    wrap.className = 'qty-control';
+
+                    const minus = document.createElement('button');
+                    minus.textContent = '−';
+                    minus.addEventListener('click', () => changeQty(name, price, -1));
+
+                    const qty = document.createElement('span');
+                    qty.textContent = inCart.qty;
+
+                    const plus = document.createElement('button');
+                    plus.textContent = '+';
+                    plus.addEventListener('click', () => changeQty(name, price, 1));
+
+                    wrap.appendChild(minus);
+                    wrap.appendChild(qty);
+                    wrap.appendChild(plus);
+                    action.appendChild(wrap);
+                }
+            });
         }
 
-        function sendWhatsAppOrder() {
+        function changeQty(name, price, delta) {
+            const existing = cart.find(i => i.name === name);
+            if (existing) {
+                existing.qty += delta;
+                if (existing.qty <= 0) {
+                    cart = cart.filter(i => i.name !== name);
+                }
+            } else if (delta > 0) {
+                cart.push({ name, price, qty: 1 });
+            }
+            renderAll();
+        }
+
+        function removeLine(name) {
+            cart = cart.filter(i => i.name !== name);
+            renderAll();
+        }
+
+        function renderCartSummary() {
+            const totalItems = cart.reduce((sum, i) => sum + i.qty, 0);
+            const totalPrice = cart.reduce((sum, i) => sum + i.qty * i.price, 0);
+            document.getElementById('item-count').innerText = totalItems;
+            document.getElementById('cart-total').innerText = totalPrice.toLocaleString();
+            document.getElementById('checkout-btn').disabled = cart.length === 0;
+
+            const linesWrap = document.getElementById('cart-lines');
+            linesWrap.innerHTML = '';
             if (cart.length === 0) {
-                alert('Please select at least one item to order.');
-                return;
+                linesWrap.innerHTML = '<div class="empty-state" style="padding:12px 20px;">Your cart is empty.</div>';
+            } else {
+                cart.forEach(item => {
+                    const line = document.createElement('div');
+                    line.className = 'cart-line';
+                    line.innerHTML = `
+                        <span>${item.qty} × ${item.name} — ₦${(item.qty * item.price).toLocaleString()}</span>
+                        <button class="remove-line" data-name="${item.name}">Remove</button>
+                    `;
+                    line.querySelector('.remove-line').addEventListener('click', () => removeLine(item.name));
+                    linesWrap.appendChild(line);
+                });
+            }
+        }
+
+        function renderAll() {
+            renderItemControls();
+            renderCartSummary();
+        }
+
+        // Toggle cart details drawer
+        document.getElementById('cart-summary-row').addEventListener('click', (e) => {
+            if (e.target.id === 'checkout-btn') return;
+            document.getElementById('cart-details').classList.toggle('open');
+        });
+
+        // ---- Checkout modal ----
+        const overlay = document.getElementById('modal-overlay');
+        const pickupBtn = document.getElementById('pickup-btn');
+        const deliveryBtn = document.getElementById('delivery-btn');
+        const addressGroup = document.getElementById('group-address');
+
+        document.getElementById('checkout-btn').addEventListener('click', () => {
+            if (cart.length === 0) return;
+            overlay.classList.add('open');
+        });
+
+        document.getElementById('modal-cancel').addEventListener('click', () => {
+            overlay.classList.remove('open');
+        });
+
+        pickupBtn.addEventListener('click', () => {
+            orderType = 'Pickup';
+            pickupBtn.classList.add('active');
+            deliveryBtn.classList.remove('active');
+            addressGroup.style.display = 'none';
+        });
+
+        deliveryBtn.addEventListener('click', () => {
+            orderType = 'Delivery';
+            deliveryBtn.classList.add('active');
+            pickupBtn.classList.remove('active');
+            addressGroup.style.display = 'block';
+        });
+
+        function setInvalid(groupId, invalid) {
+            document.getElementById(groupId).classList.toggle('invalid', invalid);
+        }
+
+        document.getElementById('modal-send').addEventListener('click', () => {
+            const name = document.getElementById('cust-name').value.trim();
+            const phone = document.getElementById('cust-phone').value.trim();
+            const address = document.getElementById('cust-address').value.trim();
+            const notes = document.getElementById('cust-notes').value.trim();
+
+            const phoneValid = /^[0-9+()\s-]{7,}$/.test(phone);
+
+            let valid = true;
+            setInvalid('group-name', !name);
+            if (!name) valid = false;
+
+            setInvalid('group-phone', !phoneValid);
+            if (!phoneValid) valid = false;
+
+            if (orderType === 'Delivery') {
+                setInvalid('group-address', !address);
+                if (!address) valid = false;
+            } else {
+                setInvalid('group-address', false);
             }
 
-            let restaurantWhatsApp = "2348182006644"; // Replace with actual number
-            let message = "Hello Spice %26 Rice Bistro! I would like to place an order:%0A%0A";
-            
-            cart.forEach((item, index) => {
-                message += `${index + 1}. ${item.name} - ₦${item.price.toLocaleString()}%0A`;
-            });
+            if (!valid) return;
 
-            message += `%0ATotal: ₦${total.toLocaleString()}%0A%0ADelivery Address: [Type Your Address Here]`;
-            
+            sendWhatsAppOrder({ name, phone, address, notes });
+        });
+
+        function sendWhatsAppOrder({ name, phone, address, notes }) {
+            const restaurantWhatsApp = "2348182006644"; // Replace with actual restaurant number
+
+            const totalPrice = cart.reduce((sum, i) => sum + i.qty * i.price, 0);
+
+            let lines = [];
+            lines.push('Hello Spice & Rice Bistro! I would like to place an order:');
+            lines.push('');
+            cart.forEach((item, index) => {
+                lines.push(`${index + 1}. ${item.name} x${item.qty} - ₦${(item.qty * item.price).toLocaleString()}`);
+            });
+            lines.push('');
+            lines.push(`Total: ₦${totalPrice.toLocaleString()}`);
+            lines.push('');
+            lines.push(`Name: ${name}`);
+            lines.push(`Phone: ${phone}`);
+            lines.push(`Order type: ${orderType}`);
+            if (orderType === 'Delivery') {
+                lines.push(`Delivery address: ${address}`);
+            }
+            if (notes) {
+                lines.push(`Notes: ${notes}`);
+            }
+
+            const message = encodeURIComponent(lines.join('\n'));
             window.open(`https://wa.me/${restaurantWhatsApp}?text=${message}`, '_blank');
+
+            overlay.classList.remove('open');
         }
+
+        renderAll();
     </script>
 </body>
 </html>
